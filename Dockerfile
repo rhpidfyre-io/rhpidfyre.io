@@ -2,8 +2,7 @@ FROM oven/bun AS builder
 
 WORKDIR /build
 
-COPY astro.config.mjs ./
-COPY package.json ./
+COPY package.json bun.lock astro.config.mjs ./
 COPY public ./public
 COPY src ./src
 
