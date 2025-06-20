@@ -2,7 +2,7 @@
 My personal website
 
 # Development
-1. Have [bun](https://bun.sh/) (recommended) installed or another node package manager like [npm](https://www.npmjs.com/).
+1. Have [bun](https://bun.sh/) (recommended) or another node package manager like [npm](https://www.npmjs.com/).
 2. Install the dependencies with `bun install`.
 3. Start the development server with `bun run start`.
 4. Build for production with `bun run build`.
