@@ -1,0 +1,33 @@
+---
+import HeaderButton from "./header_button.astro"
+---
+
+<header>
+	<main>
+		<HeaderButton text="Gitea"  href="https://git.rhpidfyre.io/"     image="/gitea-logo.webp"        image_alt="Gitea repositories"  height="25px"/>
+		<HeaderButton text="GitHub" href="https://github.com/unixtensor" image="/github-mark-white.webp" image_alt="GitHub repositories" height="25px"/>
+		<HeaderButton text="PufferPanel" href="https://gsm.rhpidfyre.io" image="/pufferpanel.webp"       image_alt="PufferPanel"         height="25px"/>
+	</main>
+</header>
+
+<style>
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100vw;
+		height: 50px;
+		margin-top: 15px;
+	}
+	main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--header-color);
+		gap: 5px;
+		height: 50px;
+		border: 1.5px solid var(--header-border-color);
+		border-radius: 15px;
+		padding: 0 15px 0 15px;
+	}
+</style>
