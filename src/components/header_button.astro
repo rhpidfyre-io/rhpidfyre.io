@@ -14,8 +14,10 @@ const {text, href, height, image, image_alt} = Astro.props
 	<p>{text}</p>
 </a>
 
-<style lang="scss">
+<style>
 	a {
+		--transition-time: .5s;
+
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -28,16 +30,22 @@ const {text, href, height, image, image_alt} = Astro.props
 		height: 35px;
 		width: 35px;
 		overflow: hidden;
-		transition: all .3s;
+		transition: width var(--transition-time), background-color var(--transition-time);
 
-		&:hover {
-			width: 80%;
-			transition: all .5s;
+		&:hover, &:focus {
+			width: 50%;
+			outline: none;
+			background-color: blue;
+			transition: width var(--transition-time), background-color var(--transition-time);
 
 			& > p {
 				opacity: 1;
-				transition: all .5s;
+				transition: width var(--transition-time), opacity var(--transition-time);
 				position: relative;
+			}
+			& > img {
+				filter: grayscale(0%);
+				transition: filter var(--transition-time);
 			}
 		}
 	}
@@ -48,9 +56,11 @@ const {text, href, height, image, image_alt} = Astro.props
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		transition: opacity var(--transition-time);
 		position: absolute;
 	}
 	img {
-		filter: grayscale(100%)
+		filter: grayscale(100%);
+		transition: filter var(--transition-time);
 	}
 </style>

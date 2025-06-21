@@ -22,15 +22,15 @@ const { name } = Astro.props
 	</body>
 </html>
 
-<style lang="scss" is:global>
+<style is:global>
 	:root {
 		color-scheme: dark;
 
-		--text-color: #e6e6e6;
+		--text-color: #c8c8c8;
 		--background-color: black;
-		--footer-color: #0a0a0a;
+		--footer-color: #050505;
 		--footer-border-color: #1e1e1e;
-		--header-color: var(--footer-color);
+		--header-color: #0a0a0a;
 		--header-border-color: var(--footer-border-color);
 		--header-button-color: #141414;
 	}
@@ -43,7 +43,7 @@ const { name } = Astro.props
 		box-sizing: border-box;
 		margin: 0;
 		background-color: var(--background-color);
-		overflow-x: hidden;
+		overflow: hidden;
 	}
 	h1, h2, p {
 		color: var(--text-color)
