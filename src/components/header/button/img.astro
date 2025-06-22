@@ -1,14 +1,16 @@
 ---
+import {clamp} from "../../../ts/math"
+
 interface Props {
 	text: string,
 	href: string,
-	height: string,
 	image: string,
+	height: string,
 	image_alt: string,
 }
 const {text, href, height, image, image_alt} = Astro.props
 
-const css_hover_size = (15 * text.length).toString() + "px"
+const css_text_size = clamp(4, text.length, 8).toString() + "em"
 ---
 
 <a href={href}>
@@ -16,14 +18,14 @@ const css_hover_size = (15 * text.length).toString() + "px"
 	<p>{text}</p>
 </a>
 
-<style lang="scss" define:vars={{ css_hover_size }}>
+<style lang="scss" define:vars={{ css_text_size }}>
 	@use "../../../scss/button.scss";
 
 	a {
 		@include button.header;
 
 		&:is(:hover, :focus) {
-			width: var(--css_hover_size);
+			width: var(--css_text_size);
 			outline: none;
 			background-color: var(--header-button-color-hover);
 			border-color: var(--header-border-color-hover);

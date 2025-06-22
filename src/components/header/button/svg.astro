@@ -1,4 +1,6 @@
 ---
+import {clamp} from "../../../ts/math"
+
 export const enum SvgName {
 	Home,
 	Blog,
@@ -8,10 +10,12 @@ export const enum SvgName {
 interface Props {
 	text: string,
 	href: string,
+	svg: SvgName,
 	active?: boolean,
-	svg: SvgName
 }
 const {text, href, active, svg} = Astro.props
+
+const css_text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length, 8).toString() + "rem"
 ---
 
 <a href={href} data-active={active ? active.toString() : "false"}>
@@ -27,7 +31,7 @@ const {text, href, active, svg} = Astro.props
 	<p>{text}</p>
 </a>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ css_text_size }}>
 	@use "../../../scss/button.scss";
 
 	a {
@@ -42,7 +46,7 @@ const {text, href, active, svg} = Astro.props
 			}
 		}
 		&:is(:hover, :focus) {
-			width: 100px;
+			width: var(--css_text_size);
 			outline: none;
 			background-color: var(--header-button-color-hover);
 			border-color: var(--header-border-color-hover);
