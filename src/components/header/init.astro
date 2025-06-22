@@ -1,0 +1,53 @@
+---
+import ButtonSvg, {SvgName} from "./button/svg.astro"
+import ButtonImg from "./button/img.astro"
+
+export const enum ActivePage {
+	Home,
+	Blog,
+	Contact,
+}
+
+interface Props {
+	current: ActivePage
+}
+const {current} = Astro.props
+---
+
+<header>
+	<main class="box">
+		<ButtonImg text="Gitea" href="https://git.rhpidfyre.io/" image="/gitea-logo.webp" image_alt="Gitea repositories" height="25px"/>
+		<ButtonImg text="GitHub" href="https://github.com/unixtensor/" image="/github-mark-white.webp" image_alt="GitHub repositories" height="20px"/>
+		<ButtonImg text="PufferPanel" href="https://gsm.rhpidfyre.io/" image="/pufferpanel.webp" image_alt="PufferPanel" height="25px"/>
+		<ButtonImg text="Seafile" href="https://files.rhpidfyre.io/" image="/seafile.webp" image_alt="Seafile" height="25px"/>
+		<ButtonImg text="AI" href="https://ai.rhpidfyre.io/" image="/open_webui.webp" image_alt="AI" height="25px"/>
+		<ButtonImg text="Matrix" href="https://matrix.to/#/@rhpidfyre:matrix.rhpidfyre.io/" image="/matrix.png" image_alt="Matrix" height="25px"/>
+	</main>
+	<aside class="box">
+		<ButtonSvg href="" text="Home" svg={SvgName.Home} active={current === ActivePage.Home}/>
+		<ButtonSvg href="" text="Blog" svg={SvgName.Blog} active={current === ActivePage.Blog}/>
+		<ButtonSvg href="" text="Contact" svg={SvgName.Contact} active={current === ActivePage.Contact}/>
+	</aside>
+</header>
+
+<style>
+	header {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px;
+		padding: 0 25px 0 25px;
+		height: 55px;
+	}
+	.box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		background-color: var(--header-color);
+		border: 1.5px solid var(--header-border-color);
+		height: inherit;
+		border-radius: 15px;
+		padding: 0 15px 0 15px;
+		box-shadow: 8px 8px 2px 1px rgb(10,10,10);
+	}
+</style>

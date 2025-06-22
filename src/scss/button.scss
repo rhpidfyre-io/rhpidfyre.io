@@ -1,0 +1,33 @@
+$transition-time: .5s;
+
+@mixin header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--header-button-color);
+	border: 1.5px solid var(--header-border-color);
+	border-radius: 10px;
+	text-decoration: none;
+	padding: 0 5px 0 5px;
+	color: var(--text-color);
+	height: 35px;
+	width: 35px;
+	overflow: hidden;
+	transition: width $transition-time, background-color $transition-time;
+
+	&:is(:hover, :focus) > p {
+		opacity: 1;
+		transition: width $transition-time, opacity $transition-time;
+		position: relative;
+	}
+	p {
+		opacity: 0;
+		margin: 0 0 0 8px;
+		background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		transition: opacity $transition-time;
+		position: absolute;
+	}
+}

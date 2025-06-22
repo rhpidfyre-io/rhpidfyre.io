@@ -1,0 +1,42 @@
+---
+interface Props {
+	text: string,
+	href: string,
+	height: string,
+	image: string,
+	image_alt: string,
+}
+const {text, href, height, image, image_alt} = Astro.props
+
+const css_hover_size = (15 * text.length).toString() + "px"
+---
+
+<a href={href}>
+	<img src={image} alt={image_alt} height={height}>
+	<p>{text}</p>
+</a>
+
+<style lang="scss" define:vars={{ css_hover_size }}>
+	@use "../../../scss/button.scss";
+
+	a {
+		@include button.header;
+
+		&:is(:hover, :focus) {
+			width: var(--css_hover_size);
+			outline: none;
+			background-color: var(--header-button-color-hover);
+			border-color: var(--header-border-color-hover);
+			transition: width button.$transition-time, background-color button.$transition-time;
+
+			& > img {
+				filter: grayscale(0%);
+				transition: filter button.$transition-time;
+			}
+		}
+		img {
+			filter: grayscale(100%);
+			transition: filter button.$transition-time;
+		}
+	}
+</style>

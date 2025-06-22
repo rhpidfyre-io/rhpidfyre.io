@@ -1,8 +1,9 @@
 ---
+import { ActivePage } from "../components/header/init.astro"
 import WebPage from "../layouts/webpage.astro"
 ---
 
-<WebPage>
+<WebPage current={ActivePage.Home}>
 	<main>
 		<h1>rhpidfyre.io</h1>
 		<h2>Personal website</h2>

@@ -1,0 +1,52 @@
+---
+export const enum SvgName {
+	Home,
+	Blog,
+	Contact
+}
+
+interface Props {
+	text: string,
+	href: string,
+	active?: boolean,
+	svg: SvgName
+}
+const {text, href, active, svg} = Astro.props
+---
+
+<a href={href} data-active={active ? active.toString() : "false"}>
+	<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#969696">
+		{svg === SvgName.Home &&
+			<path d="M200-160v-366L88-440l-48-64 440-336 160 122v-82h120v174l160 122-48 64-112-86v366H520v-240h-80v240H200Zm80-80h80v-240h240v240h80v-347L480-739 280-587v347Zm120-319h160q0-32-24-52.5T480-632q-32 0-56 20.5T400-559Zm-40 319v-240h240v240-240H360v240Z"/>
+		|| svg === SvgName.Blog &&
+			<path d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+		|| svg === SvgName.Contact &&
+			<path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/>
+		}
+	</svg>
+	<p>{text}</p>
+</a>
+
+<style lang="scss">
+	@use "../../../scss/button.scss";
+
+	a {
+		@include button.header;
+
+		&[data-active="true"] {
+			background-color: var(--header-button-color-hover);
+			border-color: var(--header-border-color-hover);
+
+			& > svg {
+				fill: #e6e6e6
+			}
+		}
+		&:is(:hover, :focus) {
+			width: 100px;
+			outline: none;
+			background-color: var(--header-button-color-hover);
+			border-color: var(--header-border-color-hover);
+			transition: width button.$transition-time, background-color button.$transition-time;
+		}
+	}
+</style>

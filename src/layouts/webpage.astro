@@ -1,12 +1,13 @@
 ---
 import Meta from "../components/meta.astro"
-import Header from "../components/header.astro"
+import Header, {ActivePage} from "../components/header/init.astro"
 import Footer from "../components/footer.astro"
 
 interface Props {
-	name?: string
+	name?: string,
+	current: ActivePage
 }
-const { name } = Astro.props
+const {name, current} = Astro.props
 ---
 
 <html lang="en">
@@ -16,7 +17,7 @@ const { name } = Astro.props
 		<title>{"rhpidfyre.io" + (name ? " | " + name : "")}</title>
 	</head>
 	<body>
-		<Header/>
+		<Header current={current}/>
 		<slot/>
 		<Footer/>
 	</body>
@@ -32,7 +33,10 @@ const { name } = Astro.props
 		--footer-border-color: #1e1e1e;
 		--header-color: #0a0a0a;
 		--header-border-color: var(--footer-border-color);
+		--header-border-color-hover: #282828;
 		--header-button-color: #141414;
+		--header-button-color-hover: var(--header-border-color);
+		--button-svg-inactive-color: var(--header-border-color-hover);
 	}
 	::selection {
 		background-color: #c8c8c8;
