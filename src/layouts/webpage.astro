@@ -23,24 +23,17 @@ const {name, current} = Astro.props
 	</body>
 </html>
 
-<style is:global>
-	:root {
-		color-scheme: dark;
+<style lang="scss" is:global>
+	@use "../scss/variables.scss";
 
-		--text-color: #c8c8c8;
-		--background-color: black;
-		--footer-color: #050505;
-		--footer-border-color: #1e1e1e;
-		--header-color: #0a0a0a;
-		--header-border-color: var(--footer-border-color);
-		--header-border-color-hover: #282828;
-		--header-button-color: #141414;
-		--header-button-color-hover: var(--header-border-color);
-		--button-svg-inactive-color: var(--header-border-color-hover);
+	:root {
+		@include variables.css-root;
+
+		color-scheme: dark;
 	}
 	::selection {
-		background-color: #c8c8c8;
-		color: black;
+		background-color: var(--selection-background-color);
+		color: var(--selection-color);
 	}
 	body {
 		font-family: -apple-system, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla";
@@ -49,7 +42,11 @@ const {name, current} = Astro.props
 		background-color: var(--background-color);
 		overflow: hidden;
 	}
-	h1, h2, p {
-		color: var(--text-color)
+	h1, p {
+		color: var(--text-color);
+	}
+	h2 {
+		font-weight: normal;
+		color: var(--secondary-text-color);
 	}
 </style>

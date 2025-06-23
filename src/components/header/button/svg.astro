@@ -19,7 +19,7 @@ const css_text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length
 ---
 
 <a href={href} data-active={active ? active.toString() : "false"}>
-	<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#969696">
+	<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 		{svg === SvgName.Home &&
 			<path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
 		|| svg === SvgName.Blog &&
@@ -42,7 +42,7 @@ const css_text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length
 			border-color: var(--header-border-color-hover);
 
 			& > svg {
-				fill: #e6e6e6
+				fill: var(--header-button-svg-color-hover)
 			}
 		}
 		&:is(:hover, :focus) {
@@ -52,5 +52,8 @@ const css_text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length
 			border-color: var(--header-border-color-hover);
 			transition: width button.$transition-time, background-color button.$transition-time;
 		}
+	}
+	svg {
+		fill: var(--header-button-svg-color);
 	}
 </style>

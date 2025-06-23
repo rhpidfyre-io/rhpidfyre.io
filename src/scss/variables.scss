@@ -1,3 +1,23 @@
+@mixin css-root {
+	--text-color: #c8c8c8;
+	--secondary-text-color: #969696;
+	--selection-background-color: #c8c8c8;
+	--selection-color: black;
+	--background-color: black;
+	--footer-color: #050505;
+	--footer-border-color: #1e1e1e;
+	--header-color: #0a0a0a;
+	--header-border-color: #1e1e1e;
+	--header-border-color-hover: #282828;
+	--header-button-color: #141414;
+	--header-button-color-hover: #1e1e1e;
+	--header-button-svg-color: #969696;
+	--header-button-svg-color-hover: #e6e6e6;
+	--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+	--button-svg-inactive-color: #1e1e1e;
+	--element-shadow-color: #0a0a0a;
+}
+
 $header-height-size: 55px;
 $header-margin-top:  20px;
 $main-height-size:   100vh;

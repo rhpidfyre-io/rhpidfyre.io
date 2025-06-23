@@ -23,7 +23,7 @@ $transition-time: .5s;
 	p {
 		opacity: 0;
 		margin: 0 0 0 8px;
-		background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+		background: var(--header-button-text-background);
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
