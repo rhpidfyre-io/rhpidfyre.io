@@ -30,13 +30,15 @@ const {current} = Astro.props
 	</aside>
 </header>
 
-<style>
+<style lang="scss">
+	@use "../../scss/variables";
+
 	header {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 20px;
+		margin-top: variables.$header-margin-top;
 		padding: 0 25px 0 25px;
-		height: 55px;
+		height: variables.$header-height-size;
 	}
 	.box {
 		display: flex;

@@ -10,11 +10,14 @@ import WebPage from "../layouts/webpage.astro"
 	</main>
 </WebPage>
 
-<style>
+<style lang="scss">
+	@use "../scss/variables";
+
 	main {
 		display: grid;
 		justify-content: center;
 		align-items: center;
+		height: variables.$main-size;
 	}
 	h1, h2 {
 		text-align: center;

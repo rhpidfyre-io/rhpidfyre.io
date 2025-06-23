@@ -1,0 +1,9 @@
+$header-height-size: 55px;
+$header-margin-top:  20px;
+$main-height-size:   100vh;
+$footer-height-size: 30px;
+
+$_main_calc_size: $header-height-size +
+				  $footer-height-size +
+				  $header-margin-top;
+$main-size: calc($main-height-size - $_main_calc_size);

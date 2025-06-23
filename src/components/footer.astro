@@ -6,18 +6,18 @@
 	<p>{Astro.generator}</p>
 </footer>
 
-<style>
+<style lang="scss">
+	@use "../scss/variables";
+
 	footer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		width: 100vw;
-		height: 30px;
-		bottom: 0;
+		height: variables.$footer-height-size;
 		padding: 0 10px 0 10px;
 		background-color: var(--footer-color);
 		border-top: 1.5px solid var(--footer-border-color);
-		position: absolute;
 	}
 	p {
 		margin: 0;
