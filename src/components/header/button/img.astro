@@ -5,16 +5,15 @@ interface Props {
 	text: string,
 	href: string,
 	image: string,
-	height: string,
 	image_alt: string,
 }
-const {text, href, height, image, image_alt} = Astro.props
+const {text, href, image, image_alt} = Astro.props
 
 const css_text_size = clamp(4, text.length, 8).toString() + "em"
 ---
 
 <a href={href}>
-	<img src={image} alt={image_alt} height={height}>
+	<img src={image} alt={image_alt} height="25px">
 	<p>{text}</p>
 </a>
 
