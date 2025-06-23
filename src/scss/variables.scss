@@ -4,7 +4,7 @@
 	--selection-background-color: #c8c8c8;
 	--selection-color: black;
 	--background-color: black;
-	--footer-color: #050505;
+	--footer-color: black;
 	--footer-border-color: #1e1e1e;
 	--header-color: #0a0a0a;
 	--header-border-color: #1e1e1e;
@@ -21,9 +21,8 @@
 $header-height-size: 55px;
 $header-margin-top:  20px;
 $main-height-size:   100vh;
-$footer-height-size: 30px;
+$footer-height-size: 200px;
 
 $_main_calc_size: $header-height-size +
-				  $footer-height-size +
 				  $header-margin-top;
 $main-size: calc($main-height-size - $_main_calc_size);
