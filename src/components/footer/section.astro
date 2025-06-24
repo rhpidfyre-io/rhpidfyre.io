@@ -1,0 +1,25 @@
+---
+interface Props {
+	name: string,
+}
+const {name} = Astro.props
+---
+
+<section>
+	<h1>{name}</h1>
+	<slot/>
+</section>
+
+<style lang="scss">
+	section {
+		display: grid;
+		height: 0; /*hack*/
+
+		h1 {
+			font-weight: normal;
+			font-size: 1.1rem;
+			margin: 15px 0 5px 0;
+			text-align: left;
+		}
+	}
+</style>
