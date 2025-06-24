@@ -18,7 +18,7 @@ const {current} = Astro.props
 
 <header>
 	<main class="box">
-		{service_tree.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} image_alt={service.image_alt}/>)}
+		{service_tree.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} alt={service.image_alt}/>)}
 	</main>
 	<aside class="box">
 		<ButtonSvg href="" text="Home" svg={SvgName.Home} active={current === ActivePage.Home}/>
@@ -28,7 +28,7 @@ const {current} = Astro.props
 </header>
 
 <style lang="scss">
-	@use "../../scss/variables";
+	@use "../../layouts/variables";
 
 	header {
 		display: flex;

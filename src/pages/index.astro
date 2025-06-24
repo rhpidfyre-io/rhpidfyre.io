@@ -5,7 +5,7 @@ import WebPage from "../layouts/webpage.astro"
 
 <WebPage current={ActivePage.Home}>
 	<main>
-		<div class="center">
+		<section class="center">
 			<aside class="left">
 				<div></div>
 			</aside>
@@ -13,15 +13,15 @@ import WebPage from "../layouts/webpage.astro"
 				<h1>rhpidfyre.io</h1>
 				<h2>Personal website</h2>
 			</aside>
-		</div>
-		<div class="bottom">
+		</section>
+		<section class="bottom">
 
-		</div>
+		</section>
 	</main>
 </WebPage>
 
 <style lang="scss">
-	@use "../scss/variables";
+	@use "../layouts/variables.scss";
 
 	main {
 		display: grid;

@@ -1,7 +1,7 @@
 ---
 import Meta from "../components/meta.astro"
 import Header, {ActivePage} from "../components/header/init.astro"
-import Footer from "../components/footer.astro"
+import Footer from "../components/footer/init.astro"
 
 interface Props {
 	name?: string,
@@ -24,7 +24,7 @@ const {name, current} = Astro.props
 </html>
 
 <style lang="scss" is:global>
-	@use "../scss/variables.scss";
+	@use "./variables.scss";
 
 	:root {
 		@include variables.css-root;
@@ -47,6 +47,13 @@ const {name, current} = Astro.props
 	}
 	h2 {
 		font-weight: normal;
-		color: var(--secondary-text-color);
+		color: var(--text-color-secondary);
+	}
+	a {
+		color: var(--text-color);
+
+		&:active, &:visited {
+			color: var(--text-color)
+		}
 	}
 </style>

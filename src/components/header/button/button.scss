@@ -1,6 +1,6 @@
 $transition-time: .5s;
 
-@mixin header {
+@mixin anchor-header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -15,10 +15,17 @@ $transition-time: .5s;
 	overflow: hidden;
 	transition: width $transition-time, background-color $transition-time;
 
-	&:is(:hover, :focus) > p {
-		opacity: 1;
-		transition: width $transition-time, opacity $transition-time;
-		position: relative;
+	&:is(:hover, :focus) {
+		outline: none;
+		background-color: var(--header-button-color-hover);
+		border-color: var(--header-border-color-hover);
+		transition: width $transition-time, background-color $transition-time;
+
+		& > p {
+			opacity: 1;
+			transition: width $transition-time, opacity $transition-time;
+			position: relative;
+		}
 	}
 	p {
 		opacity: 0;
