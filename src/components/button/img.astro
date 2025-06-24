@@ -30,21 +30,5 @@ const css_text_size = clamp(4, text.length, 8).toString() + "em"
 
 <style lang="scss" define:vars={{ css_text_size }}>
 	@use "./button.scss";
-
-	a {
-		@include button.anchor-header;
-
-		&:is(:hover, :focus) {
-			width: var(--css_text_size);
-
-			& > img {
-				filter: grayscale(0%);
-				transition: filter button.$transition-time;
-			}
-		}
-		img {
-			filter: grayscale(100%);
-			transition: filter button.$transition-time;
-		}
-	}
+	@include button.element(var(--css_text_size), false);
 </style>
