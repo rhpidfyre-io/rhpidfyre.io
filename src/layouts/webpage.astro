@@ -1,11 +1,12 @@
 ---
+import { PageName } from "../navigation"
 import Meta from "../components/meta.astro"
-import Header, {ActivePage} from "../components/header/init.astro"
+import Header from "../components/header/init.astro"
 import Footer from "../components/footer/init.astro"
 
 interface Props {
 	name?: string,
-	current: ActivePage
+	current: PageName
 }
 const {name, current} = Astro.props
 ---
@@ -34,6 +35,7 @@ const {name, current} = Astro.props
 	::selection {
 		background-color: var(--selection-background-color);
 		color: var(--selection-color);
+		-webkit-text-fill-color: var(--selection-color);
 	}
 	body {
 		font-family: -apple-system, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla";
@@ -55,7 +57,7 @@ const {name, current} = Astro.props
 		&:hover {
 			cursor: pointer;
 		}
-		&:is(active, :visited) {
+		&:is(:active, :visited) {
 			color: var(--text-color)
 		}
 	}
