@@ -1,29 +1,20 @@
 ---
-import ButtonSvg, {SvgName} from "../button/svg.astro"
+import ButtonSvg from "../button/svg.astro"
 import ButtonImg from "../button/img.astro"
-
-import service_tree from "../../services"
-
-export const enum ActivePage {
-	Home,
-	Blog,
-	Contact,
-}
+import navigation, { PageName } from "../../navigation"
 
 interface Props {
-	current: ActivePage
+	current: PageName
 }
 const {current} = Astro.props
 ---
 
 <header>
 	<main class="box">
-		{service_tree.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} alt={service.image_alt}/>)}
+		{navigation.services.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} alt={service.image_alt}/>)}
 	</main>
 	<aside class="box">
-		<ButtonSvg href="" text="Home" svg={SvgName.Home} active={current === ActivePage.Home}/>
-		<ButtonSvg href="" text="Blog" svg={SvgName.Blog} active={current === ActivePage.Blog}/>
-		<ButtonSvg href="" text="Contact" svg={SvgName.Contact} active={current === ActivePage.Contact}/>
+		{navigation.pages.map(page => <ButtonSvg href={page.href} text={page.name} svg={page.icon} active={current === page.icon}/>)}
 	</aside>
 </header>
 

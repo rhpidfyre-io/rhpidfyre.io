@@ -1,16 +1,14 @@
 ---
 import Section, {Svg} from "./section.astro"
-import service_tree from "../../services"
+import navigation from "../../navigation"
 ---
 
 <main>
 	<Section name="Services" icon={Svg.Services}>
-		{service_tree.map(service => <a href={service.href}>{service.name}</a>)}
+		{navigation.services.map(service => <a href={service.href}>{service.name}</a>)}
 	</Section>
 	<Section name="Map" icon={Svg.Map}>
-		<a href="#">Home</a>
-		<a href="">Blog</a>
-		<a href="">Contact</a>
+		{navigation.pages.map(page => <a href={page.href}>{page.name}</a>)}
 	</Section>
 	<Section name="Source Code" icon={Svg.SourceCode}>
 		<a href="https://github.com/rhpidfyre-io/rhpidfyre.io" target="_blank">GitHub</a>
