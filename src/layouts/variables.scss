@@ -4,8 +4,6 @@
 	--selection-background-color: #c8c8c8;
 	--selection-color: black;
 	--background-color: black;
-	--footer-color: black;
-	--footer-border-color: #1e1e1e;
 	--header-color: #0a0a0a;
 	--header-border-color: #1e1e1e;
 	--header-border-color-hover: #282828;
@@ -14,6 +12,9 @@
 	--header-button-svg-color: #969696;
 	--header-button-svg-color-hover: #e6e6e6;
 	--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+	--footer-color: black;
+	--footer-border-color: #1e1e1e;
+	--footer-anchor-color: #646464;
 	--button-svg-inactive-color: #1e1e1e;
 	--element-shadow-color: #0a0a0a;
 }
@@ -21,7 +22,6 @@
 $header-height-size: 55px;
 $header-margin-top:  20px;
 $main-height-size:   100vh;
-$footer-height-size: 200px;
 
 $_main_calc_size: $header-height-size +
 				  $header-margin-top;

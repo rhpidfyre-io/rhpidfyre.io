@@ -52,8 +52,14 @@ const {name, current} = Astro.props
 	a {
 		color: var(--text-color);
 
-		&:active, &:visited {
+		&:hover {
+			cursor: pointer;
+		}
+		&:is(active, :visited) {
 			color: var(--text-color)
 		}
+	}
+	button:hover {
+		cursor: pointer;
 	}
 </style>

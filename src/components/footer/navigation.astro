@@ -1,0 +1,47 @@
+---
+import Section, {Svg} from "./section.astro"
+import service_tree from "../../services"
+---
+
+<main>
+	<Section name="Services" icon={Svg.Services}>
+		{service_tree.map(service => <a href={service.href}>{service.name}</a>)}
+	</Section>
+	<Section name="Map" icon={Svg.Map}>
+		<a href="#">Home</a>
+		<a href="">Blog</a>
+		<a href="">Contact</a>
+	</Section>
+	<Section name="Source Code" icon={Svg.SourceCode}>
+		<a href="https://github.com/rhpidfyre-io/rhpidfyre.io" target="_blank">GitHub</a>
+		<a href="https://git.rhpidfyre.io/rhpidfyre.io/rhpidfyre.io" target="_blank">Gitea</a>
+	</Section>
+</main>
+
+<style>
+	main {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 100px;
+		height: inherit;
+		margin-bottom: 30px;
+	}
+	a {
+		font-size: .9rem;
+		text-decoration: none;
+		margin: 5px 0 5px 0;
+		color: var(--footer-anchor-color);
+		width: fit-content;
+		outline: none;
+		transition: color .3s;
+
+		&:is(:active, :visited) {
+			color: var(--footer-anchor-color);
+		}
+		&:is(:hover, :focus) {
+			color: var(--text-color);
+			transition: color .3s;
+		}
+	}
+</style>

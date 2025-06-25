@@ -1,0 +1,38 @@
+---
+import ButtonImg from "../button/img.astro"
+---
+
+<footer class="copyright-section">
+	<section class="logos">
+		<div class="footer-logo"></div>
+		<ButtonImg text={Astro.generator} alt={Astro.generator} href="https://astro.build/" target="_blank" image="/footer/astro.webp" img_height="20px" height="40px" color="black"/>
+	</section>
+	<p>&copy; 2025 rhpidfyre.io</p>
+</footer>
+
+<style>
+	.copyright-section {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		p {
+			font-size: .9rem;
+			text-align: center;
+			color: var(--text-color-secondary);
+		}
+	}
+	.logos {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	.footer-logo {
+		background-image: url("/logo.webp");
+		background-size: cover;
+		height: 40px;
+		width: 40px;
+		border: 1.5px solid var(--header-border-color);
+		border-radius: 10px;
+	}
+</style>

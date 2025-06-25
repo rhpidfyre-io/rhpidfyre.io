@@ -1,25 +1,11 @@
 ---
-import Section from "./section.astro"
-import ButtonImg from "../button/img.astro"
-
-import service_tree from "../../services"
+import Navigation from "./navigation.astro"
+import Copyright from "./copyright.astro"
 ---
 
 <footer>
-	<main>
-		<Section name="Services">
-			{service_tree.map(service => <a href={service.href}>{service.name}</a>)}
-		</Section>
-		<Section name="Map">
-			<a href="#">Home</a>
-			<a href="">Blog</a>
-			<a href="">Contact</a>
-		</Section>
-	</main>
-	<div>
-		<p>rhpidfyre</p>
-		<ButtonImg text={Astro.generator} alt={Astro.generator} href="https://astro.build/" target="_blank" image="/footer/astro.webp" height="20px"/>
-	</div>
+	<Navigation/>
+	<Copyright/>
 </footer>
 
 <style lang="scss">
@@ -29,39 +15,8 @@ import service_tree from "../../services"
 		display: grid;
 		justify-content: center;
 		width: 100vw;
-		height: variables.$footer-height-size;
-		padding: 10px 0 70px 0;
+		padding: 30px 0 20px 0;
 		background-color: var(--footer-color);
 		border-top: 1.5px solid var(--footer-border-color);
-	}
-	main {
-		display: flex;
-		gap: 80px;
-		height: inherit;
-		margin-bottom: 40px;
-	}
-	div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		p {
-			text-align: center;
-		}
-	}
-	a {
-		text-decoration: none;
-		margin: 5px 0 5px 0;
-		color: #646464;
-		width: fit-content;
-		transition: color .3s;
-
-		&:active, &:visited {
-			color: #646464;
-		}
-		&:hover {
-			color: var(--text-color);
-			transition: color .3s;
-		}
 	}
 </style>

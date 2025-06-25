@@ -6,29 +6,35 @@ type Target = astroHTML.JSX.HTMLAttributeAnchorTarget
 export const enum SvgName {
 	Home,
 	Blog,
-	Contact
+	Contact,
 }
 
 interface Props {
+	svg_height?: string,
+	height?: string,
+	active?: boolean,
+	target?: Target,
+	color?: string,
 	text: string,
 	href: string,
 	svg: SvgName,
-	active?: boolean,
-	target?: Target,
 }
 const {
 	text,
 	href,
 	svg,
-	active = false,
-	target = "_self"
+	active     = false,
+	target     = "_self",
+	color      = "var(--header-button-color)",
+	height     = "35px",
+	svg_height = "24px",
 } = Astro.props
 
-const css_text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length, 8).toString() + "rem"
+const text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length, 8).toString() + "rem"
 ---
 
 <a href={href} target={target} data-active={active.toString()}>
-	<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+	<svg xmlns="http://www.w3.org/2000/svg" height={svg_height} viewBox="0 -960 960 960" width={svg_height}>
 		{svg === SvgName.Home &&
 			<path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
 		|| svg === SvgName.Blog &&
@@ -40,7 +46,7 @@ const css_text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length
 	<p>{text}</p>
 </a>
 
-<style lang="scss" define:vars={{ css_text_size }}>
+<style lang="scss" define:vars={{ text_size, color, height }}>
 	@use "./button.scss";
-	@include button.element(var(--css_text_size), true);
+	@include button.element(var(--text_size), true, var(--color), var(--height));
 </style>

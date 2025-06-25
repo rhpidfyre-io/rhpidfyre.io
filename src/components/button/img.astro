@@ -4,8 +4,10 @@ import clamp from "./clamp"
 type Target = astroHTML.JSX.HTMLAttributeAnchorTarget
 
 interface Props {
+	img_height?: string,
 	height?: string,
 	target?: Target,
+	color?: string,
 	image: string,
 	text: string,
 	href: string,
@@ -16,19 +18,21 @@ const {
 	href,
 	image,
 	alt,
-	height = "25px",
-	target = "_self"
+	height     = "35px",
+	img_height = "25px",
+	target     = "_self",
+	color      = "var(--header-button-color)"
 } = Astro.props
 
-const css_text_size = clamp(4, text.length, 8).toString() + "em"
+const text_size = clamp(4, text.length, 8).toString() + "em"
 ---
 
 <a href={href} target={target}>
-	<img src={image} alt={alt} height={height}>
+	<img src={image} alt={alt} height={img_height}>
 	<p>{text}</p>
 </a>
 
-<style lang="scss" define:vars={{ css_text_size }}>
+<style lang="scss" define:vars={{ text_size, color, height }}>
 	@use "./button.scss";
-	@include button.element(var(--css_text_size), false);
+	@include button.element(var(--text_size), false, var(--color), var(--height));
 </style>
