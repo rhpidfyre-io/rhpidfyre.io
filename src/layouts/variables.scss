@@ -1,4 +1,4 @@
-@mixin _text-colors($scheme) {
+@mixin _root-text-colors($scheme) {
 	@if $scheme == dark {
 		--text-color: #c8c8c8;
 		--text-color-secondary: #969696;
@@ -6,7 +6,7 @@
 
 	}
 }
-@mixin _header-colors($scheme) {
+@mixin _root-header-colors($scheme) {
 	@if $scheme == dark {
 		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
 		--header-button-svg-color-hover: #e6e6e6;
@@ -20,7 +20,7 @@
 
 	}
 }
-@mixin _footer-colors($scheme) {
+@mixin _root-footer-colors($scheme) {
 	@if $scheme == dark {
 		--footer-border-color: #1e1e1e;
 		--footer-anchor-color: #646464;
@@ -29,7 +29,7 @@
 
 	}
 }
-@mixin _element-colors($scheme) {
+@mixin _root-element-colors($scheme) {
 	@if $scheme == dark {
 		--button-svg-inactive-color: #1e1e1e;
 		--window-background-color: #111111;
@@ -39,17 +39,17 @@
 
 	}
 }
-@mixin _colors($scheme) {
-	@include _text-colors($scheme);
-	@include _header-colors($scheme);
-	@include _footer-colors($scheme);
-	@include _element-colors($scheme);
+@mixin _root-colors($scheme) {
+	@include _root-text-colors($scheme);
+	@include _root-header-colors($scheme);
+	@include _root-footer-colors($scheme);
+	@include _root-element-colors($scheme);
 }
 
 @mixin css-root {
-	@include _colors(dark);
+	@include _root-colors(dark);
 	@media (prefers-color-scheme: light) {
-		@include _colors(light);
+		@include _root-colors(light);
 	}
 }
 
