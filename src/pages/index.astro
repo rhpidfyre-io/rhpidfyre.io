@@ -1,32 +1,22 @@
 ---
 import { PageName } from "../navigation"
 import WebPage from "../layouts/webpage.astro"
-import Window from "../components/window.astro"
 ---
 
 <WebPage current={PageName.Home}>
-	<main>
-		<section class="center">
-			<aside>
-				<div></div>
-			</aside>
-			<aside>
-				<h1 class="title">rhpidfyre.io</h1>
-			</aside>
-		</section>
-	</main>
+	<section class="center">
+		<aside>
+			<div></div>
+		</aside>
+		<aside>
+			<h1 class="title">rhpidfyre.io</h1>
+		</aside>
+	</section>
 </WebPage>
 
 <style lang="scss">
 	@use "../layouts/variables.scss";
 
-	main {
-		display: grid;
-		justify-content: center;
-		align-content: center;
-		height: variables.$main-size;
-		gap: 80px;
-	}
 	.title {
 		font-size: 2.5rem;
 		text-align: center;

@@ -1,28 +1,61 @@
+@mixin _text-colors($scheme) {
+	@if $scheme == dark {
+		--text-color: #c8c8c8;
+		--text-color-secondary: #969696;
+	} @else {
+
+	}
+}
+@mixin _header-colors($scheme) {
+	@if $scheme == dark {
+		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+		--header-button-svg-color-hover: #e6e6e6;
+		--header-button-color-hover: #1e1e1e;
+		--header-border-color-hover: #282828;
+		--header-button-svg-color: #969696;
+		--header-border-color: #1e1e1e;
+		--header-button-color: #141414;
+		--header-color: #0a0a0a;
+	} @else {
+
+	}
+}
+@mixin _footer-colors($scheme) {
+	@if $scheme == dark {
+		--footer-border-color: #1e1e1e;
+		--footer-anchor-color: #646464;
+		--footer-color: black;
+	} @else {
+
+	}
+}
+@mixin _element-colors($scheme) {
+	@if $scheme == dark {
+		--button-svg-inactive-color: #1e1e1e;
+		--window-background-color: #111111;
+		--element-shadow-color: #0a0a0a;
+		--background-color: black;
+	} @else {
+
+	}
+}
+@mixin _colors($scheme) {
+	@include _text-colors($scheme);
+	@include _header-colors($scheme);
+	@include _footer-colors($scheme);
+	@include _element-colors($scheme);
+}
+
 @mixin css-root {
-	--text-color: #c8c8c8;
-	--text-color-secondary: #969696;
-	--selection-background-color: #c8c8c8;
-	--selection-color: black;
-	--background-color: black;
-	--header-color: #0a0a0a;
-	--header-border-color: #1e1e1e;
-	--header-border-color-hover: #282828;
-	--header-button-color: #141414;
-	--header-button-color-hover: #1e1e1e;
-	--header-button-svg-color: #969696;
-	--header-button-svg-color-hover: #e6e6e6;
-	--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
-	--footer-color: black;
-	--footer-border-color: #1e1e1e;
-	--footer-anchor-color: #646464;
-	--button-svg-inactive-color: #1e1e1e;
-	--element-shadow-color: #0a0a0a;
-	--window-background-color: #111111;
+	@include _colors(dark);
+	@media (prefers-color-scheme: light) {
+		@include _colors(light);
+	}
 }
 
 $header-button-transition-time: .5s;
-$header-height-size:  55px;
-$header-margin-top:   20px;
-$main-height-size:    100vh;
+$header-height-size: 55px;
+$header-margin-top:  20px;
+$main-height-size:   100vh;
 
 $main-size: calc($main-height-size - $header-height-size);

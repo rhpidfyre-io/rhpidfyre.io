@@ -35,7 +35,7 @@ const navigation: Navigation = {
 		{
 			name: "Contact",
 			icon: PageName.Contact,
-			href: ""
+			href: "/contact/"
 		},
 	],
 	services: [
