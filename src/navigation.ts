@@ -25,12 +25,12 @@ const navigation: Navigation = {
 		{
 			name: "Home",
 			icon: PageName.Home,
-			href: ""
+			href: "/"
 		},
 		{
 			name: "Blog",
 			icon: PageName.Blog,
-			href: ""
+			href: "/blog/"
 		},
 		{
 			name: "Contact",

@@ -1,22 +1,20 @@
 ---
 import { PageName } from "../navigation"
 import WebPage from "../layouts/webpage.astro"
+import Window from "../components/window.astro"
 ---
 
 <WebPage current={PageName.Home}>
 	<main>
 		<section class="center">
-			<aside class="left">
+			<aside>
 				<div></div>
 			</aside>
-			<aside class="right">
-				<h1>rhpidfyre.io</h1>
-				<h2>Personal website</h2>
+			<aside>
+				<h1 class="title">rhpidfyre.io</h1>
 			</aside>
 		</section>
-		<section class="bottom">
-
-		</section>
+		<!-- <Window/> -->
 	</main>
 </WebPage>
 
@@ -30,38 +28,30 @@ import WebPage from "../layouts/webpage.astro"
 		height: variables.$main-size;
 		gap: 80px;
 	}
-	h1, h2 {
+	.title {
+		font-size: 2.5rem;
 		text-align: center;
 		margin: 0;
+		background: var(--header-button-text-background);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
-	h1 {
-		font-size: 2.5rem;
-	}
-
 	.center {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 50px;
+		margin-bottom: variables.$header-margin-top;
 
-		.left div {
+		aside div {
 			border: 2px solid var(--header-border-color);
 			box-shadow: 8px 8px 2px 1px var(--element-shadow-color);
 			border-radius: 50%;
 			background-image: url("/logo.webp");
 			background-size: cover;
-			height: 130px;
-			width: 130px;
+			height: 120px;
+			width: 120px;
 		}
-		.right {
-
-		}
-	}
-	.bottom {
-		width: 100px;
-		height: 100px;
-		border: 1.5px solid var(--header-border-color);
-		border-radius: 10px;
-		margin-inline: auto;
 	}
 </style>

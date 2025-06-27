@@ -5,17 +5,27 @@ import Header from "../components/header/init.astro"
 import Footer from "../components/footer/init.astro"
 
 interface Props {
-	name?: string,
-	current: PageName
+	current: PageName,
 }
-const {name, current} = Astro.props
+const {current} = Astro.props
+
+function page_name(): string {
+	switch(current) {
+		case PageName.Contact:
+			return " | Contact"
+		case PageName.Blog:
+			return " | Blog"
+		default:
+			return ""
+	}
+}
 ---
 
 <html lang="en">
 	<head>
 		<Meta/>
 		<link rel="icon" type="image/webp" href="/logo.webp"/>
-		<title>{"rhpidfyre.io" + (name ? " | " + name : "")}</title>
+		<title>{"rhpidfyre.io" + page_name()}</title>
 	</head>
 	<body>
 		<Header current={current}/>
