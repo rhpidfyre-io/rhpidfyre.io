@@ -1,8 +1,59 @@
-$transition-time: .5s;
+@use "../../layouts/variables.scss";
 
 @mixin element($text-width, $is-svg, $color, $height) {
 	a {
 		@include anchor-header($text-width, $is-svg, $color, $height);
+	}
+}
+
+@mixin _hover-header($text-width) {
+	width: $text-width;
+	outline: none;
+	background-color: var(--header-button-color-hover);
+	border-color: var(--header-border-color-hover);
+	& > p {
+		opacity: 1;
+		position: relative;
+	}
+}
+
+@mixin _hover($text-width, $is-svg) {
+	&:is(:hover, :focus) {
+		@include _hover-header($text-width);
+		transition: width variables.$header-button-transition-time, background-color variables.$header-button-transition-time;
+
+		& > p {
+			transition: width variables.$header-button-transition-time, opacity variables.$header-button-transition-time;
+		}
+		@if not $is-svg {
+			& > img {
+				filter: grayscale(0%);
+				transition: filter variables.$header-button-transition-time;
+			}
+		}
+	}
+}
+
+@mixin _svg($text-width, $is-svg) {
+	&[data-active="true"] {
+		@include _hover-header($text-width);
+		& > svg {
+			fill: var(--header-button-svg-color-hover)
+		}
+	}
+	&[data-active="false"] {
+		@include _hover($text-width, $is-svg);
+	}
+	svg {
+		fill: var(--header-button-svg-color);
+	}
+}
+
+@mixin _img($text-width, $is-svg) {
+	@include _hover($text-width, $is-svg);
+	img {
+		filter: grayscale(100%);
+		transition: filter variables.$header-button-transition-time;
 	}
 }
 
@@ -19,46 +70,12 @@ $transition-time: .5s;
 	height: $height;
 	width: 35px;
 	overflow: hidden;
-	transition: width $transition-time, background-color $transition-time;
-
-	&:is(:hover, :focus) {
-		width: $text-width;
-		outline: none;
-		background-color: var(--header-button-color-hover);
-		border-color: var(--header-border-color-hover);
-		transition: width $transition-time, background-color $transition-time;
-
-		& > p {
-			opacity: 1;
-			transition: width $transition-time, opacity $transition-time;
-			position: relative;
-		}
-
-		@if not $is-svg {
-			& > img {
-				filter: grayscale(0%);
-				transition: filter $transition-time;
-			}
-		}
-	}
+	transition: width variables.$header-button-transition-time, background-color variables.$header-button-transition-time;
 
 	@if $is-svg {
-		&[data-active="true"] {
-			background-color: var(--header-button-color-hover);
-			border-color: var(--header-border-color-hover);
-
-			& > svg {
-				fill: var(--header-button-svg-color-hover)
-			}
-		}
-		svg {
-			fill: var(--header-button-svg-color);
-		}
+		@include _svg($text-width, $is-svg);
 	} @else {
-		img {
-			filter: grayscale(100%);
-			transition: filter $transition-time;
-		}
+		@include _img($text-width, $is-svg);
 	}
 	p {
 		opacity: 0;
@@ -68,7 +85,7 @@ $transition-time: .5s;
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		transition: opacity $transition-time;
+		transition: opacity variables.$header-button-transition-time;
 		position: absolute;
 	}
 }

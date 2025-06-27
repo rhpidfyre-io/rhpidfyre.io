@@ -17,10 +17,12 @@
 	--footer-anchor-color: #646464;
 	--button-svg-inactive-color: #1e1e1e;
 	--element-shadow-color: #0a0a0a;
+	--window-background-color: #111111;
 }
 
-$header-height-size: 55px;
-$header-margin-top:  20px;
-$main-height-size:   100vh;
+$header-button-transition-time: .5s;
+$header-height-size:  55px;
+$header-margin-top:   20px;
+$main-height-size:    100vh;
 
 $main-size: calc($main-height-size - $header-height-size);
