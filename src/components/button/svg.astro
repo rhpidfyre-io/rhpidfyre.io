@@ -25,7 +25,7 @@ const {
 	svg_height = "24px",
 } = Astro.props
 
-const text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length, 8).toString() + "rem"
+const text_size = clamp(4, text.length === 4 ? text.length + 2 : text.length, 8).toString() + "rem"
 ---
 
 <a href={href} target={target} data-active={active.toString()}>
