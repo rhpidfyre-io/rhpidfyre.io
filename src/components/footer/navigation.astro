@@ -32,14 +32,14 @@ import navigation from "../../navigation"
 		color: var(--footer-anchor-color);
 		width: fit-content;
 		outline: none;
-		transition: color .3s;
+		transition: color var(--button-transition-time);
 
 		&:is(:active, :visited) {
 			color: var(--footer-anchor-color);
 		}
 		&:is(:hover, :focus) {
 			color: var(--text-color);
-			transition: color .3s;
+			transition: color var(--button-transition-time);
 		}
 	}
 </style>

@@ -20,17 +20,18 @@
 @mixin _hover($text-width, $is-svg) {
 	&:is(:hover, :focus) {
 		@include _hover-header($text-width);
-		transition: width variables.$header-button-transition-time, background-color variables.$header-button-transition-time;
-
-		& > p {
-			transition: width variables.$header-button-transition-time, opacity variables.$header-button-transition-time;
-		}
 		@if not $is-svg {
-			& > img {
-				filter: grayscale(0%);
-				transition: filter variables.$header-button-transition-time;
+			@media (prefers-color-scheme: dark) {
+				& > img {
+					filter: grayscale(0%);
+					transition: filter var(--header-button-transition-time);
+				}
 			}
 		}
+		& > p {
+			transition: width var(--header-button-transition-time), opacity var(--header-button-transition-time);
+		}
+		transition: width var(--header-button-transition-time), background-color var(--header-button-transition-time);
 	}
 }
 
@@ -51,9 +52,11 @@
 
 @mixin _img($text-width, $is-svg) {
 	@include _hover($text-width, $is-svg);
-	img {
-		filter: grayscale(100%);
-		transition: filter variables.$header-button-transition-time;
+	@media (prefers-color-scheme: dark) {
+		img {
+			filter: grayscale(100%);
+			transition: filter var(--header-button-transition-time);
+		}
 	}
 }
 
@@ -70,13 +73,14 @@
 	height: $height;
 	width: 35px;
 	overflow: hidden;
-	transition: width variables.$header-button-transition-time, background-color variables.$header-button-transition-time;
+	transition: width var(--header-button-transition-time), background-color var(--header-button-transition-time);
 
 	@if $is-svg {
 		@include _svg($text-width, $is-svg);
 	} @else {
 		@include _img($text-width, $is-svg);
 	}
+
 	p {
 		opacity: 0;
 		margin: 0 0 0 8px;
@@ -85,7 +89,7 @@
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		transition: opacity variables.$header-button-transition-time;
+		transition: opacity var(--header-button-transition-time);
 		position: absolute;
 	}
 }

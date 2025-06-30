@@ -36,10 +36,31 @@
 		--element-shadow-color: #0a0a0a;
 		--background-color: black;
 	} @else {
-
+		--background-color: white;
 	}
 }
+@mixin _selection-colors($scheme) {
+	@if $scheme == dark {
+		--selection-background-color: #c8c8c8;
+		--selection-color: black;
+	} @else {
+		--selection-background-color: #0062d1;
+		--selection-color: white;
+	}
+}
+
+@mixin _motions($preference) {
+	@if $preference == no-preference {
+		--header-button-transition-time: .5s;
+		--button-transition-time: .3s;
+	} @else {
+		--header-button-transition-time: 0s;
+		--button-transition-time: 0s;
+	}
+}
+
 @mixin _root-colors($scheme) {
+	@include _selection-colors($scheme);
 	@include _root-text-colors($scheme);
 	@include _root-header-colors($scheme);
 	@include _root-footer-colors($scheme);
@@ -51,9 +72,12 @@
 	@media (prefers-color-scheme: light) {
 		@include _root-colors(light);
 	}
+	@include _motions(no-preference);
+	@media (prefers-reduced-motion: reduce) {
+		@include _motions(reduce);
+	}
 }
 
-$header-button-transition-time: .5s;
 $header-height-size: 55px;
 $header-margin-top:  20px;
 $main-height-size:   100vh;
