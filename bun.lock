@@ -4,7 +4,7 @@
     "": {
       "name": "proto-pulsar",
       "dependencies": {
-        "astro": "^5.10.0",
+        "astro": "^5.10.1",
         "sass": "^1.89.2",
       },
     },
