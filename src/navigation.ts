@@ -2,6 +2,7 @@ const enum PageName {
 	Home,
 	Blog,
 	Contact,
+	Projects,
 }
 
 interface Page {
@@ -33,10 +34,15 @@ const navigation: Navigation = {
 			href: "/blog/"
 		},
 		{
+			name: "Projects",
+			icon: PageName.Projects,
+			href: "/projects/"
+		},
+		{
 			name: "Contact",
 			icon: PageName.Contact,
 			href: "/contact/"
-		},
+		}
 	],
 	services: [
 		{
