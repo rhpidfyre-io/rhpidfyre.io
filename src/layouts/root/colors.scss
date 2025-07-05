@@ -1,0 +1,69 @@
+@mixin _root-text-colors($scheme) {
+	@if $scheme == dark {
+		--text-color: #c8c8c8;
+		--text-color-secondary: #969696;
+	} @else {
+
+	}
+}
+
+@mixin _root-header-colors($scheme) {
+	@if $scheme == dark {
+		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+		--header-button-svg-color-hover: #e6e6e6;
+		--header-button-color-hover: #1e1e1e;
+		--header-border-color-hover: #282828;
+		--header-button-svg-color: #969696;
+		--header-border-color: #1e1e1e;
+		--header-button-color: #141414;
+		--header-color: #0a0a0a;
+	} @else {
+		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+		--header-button-svg-color-hover: #e6e6e6;
+		--header-button-color-hover: #1e1e1e;
+		--header-border-color-hover: #282828;
+		--header-button-svg-color: #969696;
+		--header-border-color: #1e1e1e;
+		--header-button-color: #cccccc;
+		--header-color: #0a0a0a;
+	}
+}
+
+@mixin _root-footer-colors($scheme) {
+	@if $scheme == dark {
+		--footer-border-color: #1e1e1e;
+		--footer-anchor-color: #646464;
+		--footer-color: black;
+	} @else {
+
+	}
+}
+
+@mixin _root-element-colors($scheme) {
+	@if $scheme == dark {
+		--button-svg-inactive-color: #1e1e1e;
+		--window-background-color: #111111;
+		--element-shadow-color: #0a0a0a;
+		--background-color: black;
+	} @else {
+		--background-color: white;
+	}
+}
+
+@mixin _selection-colors($scheme) {
+	@if $scheme == dark {
+		--selection-background-color: #c8c8c8;
+		--selection-color: black;
+	} @else {
+		--selection-background-color: #0062d1;
+		--selection-color: white;
+	}
+}
+
+@mixin root($scheme) {
+	@include _selection-colors($scheme);
+	@include _root-text-colors($scheme);
+	@include _root-header-colors($scheme);
+	@include _root-footer-colors($scheme);
+	@include _root-element-colors($scheme);
+}
