@@ -1,7 +1,7 @@
 ---
 import ButtonSvg from "../button/svg.astro"
 import ButtonImg from "../button/img.astro"
-import navigation, { PageName } from "../../navigation"
+import navigation, { type PageName } from "../../navigation"
 
 interface Props {
 	current: PageName
@@ -14,7 +14,11 @@ const {current} = Astro.props
 		{navigation.services.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} alt={service.image_alt}/>)}
 	</aside>
 	<main class="box">
-		{navigation.pages.map(page => <ButtonSvg href={page.href} text={page.name} svg={page.icon} active={current === page.icon}/>)}
+		{navigation.pages.map(page_name => <ButtonSvg
+			href={page_name === "Home" ? "/" : `/${page_name.toLowerCase()}/`}
+			text={page_name}
+			svg={page_name as PageName}
+			active={current === page_name}/>)}
 	</main>
 </header>
 

@@ -1,15 +1,5 @@
-const enum PageName {
-	Home,
-	Blog,
-	Contact,
-	Projects,
-}
+type PageName = "Home" | "Blog" | "Contact" | "Projects"
 
-interface Page {
-	name: string,
-	icon: PageName,
-	href: string,
-}
 interface Service {
 	image_alt: string,
 	image: string,
@@ -17,32 +7,16 @@ interface Service {
 	href: string,
 }
 interface Navigation {
-	pages: Page[],
+	pages: string[],
 	services: Service[]
 }
 
 const navigation: Navigation = {
 	pages: [
-		{
-			name: "Home",
-			icon: PageName.Home,
-			href: "/"
-		},
-		{
-			name: "Blog",
-			icon: PageName.Blog,
-			href: "/blog/"
-		},
-		{
-			name: "Projects",
-			icon: PageName.Projects,
-			href: "/projects/"
-		},
-		{
-			name: "Contact",
-			icon: PageName.Contact,
-			href: "/contact/"
-		}
+		"Home",
+		"Blog",
+		"Projects",
+		"Contact",
 	],
 	services: [
 		{
@@ -86,5 +60,5 @@ const navigation: Navigation = {
 
 export default navigation
 export {
-	PageName
+	type PageName
 }

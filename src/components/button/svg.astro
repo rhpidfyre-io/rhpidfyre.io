@@ -1,6 +1,6 @@
 ---
 import clamp from "./clamp"
-import { PageName } from "../../navigation"
+import { type PageName } from "../../navigation"
 
 type Target = astroHTML.JSX.HTMLAttributeAnchorTarget
 
@@ -30,13 +30,13 @@ const text_size = clamp(4, text.length === 4 ? text.length + 1 : text.length - 1
 
 <a href={href} target={target} data-active={active.toString()}>
 	<svg xmlns="http://www.w3.org/2000/svg" height={svg_height} viewBox="0 -960 960 960" width={svg_height}>
-		{svg === PageName.Home &&
+		{svg === "Home" &&
 			<path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
-		|| svg === PageName.Blog &&
+		|| svg === "Blog" &&
 			<path d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
-		|| svg === PageName.Contact &&
+		|| svg === "Contact" &&
 			<path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/>
-		|| svg === PageName.Projects &&
+		|| svg === "Projects" &&
 			<path d="M160-240v-480 520-40Zm0 80q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v200h-80v-200H447l-80-80H160v480h200v80H160ZM584-56 440-200l144-144 56 57-87 87 87 87-56 57Zm192 0-56-57 87-87-87-87 56-57 144 144L776-56Z"/>
 		}
 	</svg>

@@ -1,5 +1,5 @@
 ---
-import { PageName } from "../../navigation"
+import navigation, { type PageName } from "../../navigation"
 import Meta from "../../components/meta.astro"
 import Header from "../../components/header/init.astro"
 import Footer from "../../components/footer/init.astro"
@@ -14,17 +14,6 @@ interface Props {
 	current: PageName,
 }
 
-function page_name(): string {
-	switch(current) {
-		case PageName.Contact:
-			return " | Contact"
-		case PageName.Blog:
-			return " | Blog"
-		default:
-			return ""
-	}
-}
-
 const {current} = Astro.props
 ---
 
@@ -32,7 +21,7 @@ const {current} = Astro.props
 	<head>
 		<Meta/>
 		<link rel="icon" type="image/webp" href="/logo.webp"/>
-		<title>{"rhpidfyre.io" + page_name()}</title>
+		<title>{"rhpidfyre.io" + (current === "Home" ? "" : " | " + current)}</title>
 		<!--Client theme-->
 		<script is:inline define:vars={{ Theme }}>
 			const root = document.querySelector(":root")
