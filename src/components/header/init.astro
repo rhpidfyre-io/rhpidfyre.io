@@ -1,7 +1,7 @@
 ---
 import ButtonSvg from "../button/svg.astro"
 import ButtonImg from "../button/img.astro"
-import navigation, { type PageName } from "../../navigation"
+import navigation, { type PageName, format_pagelink } from "../../navigation"
 
 interface Props {
 	current: PageName
@@ -15,7 +15,7 @@ const {current} = Astro.props
 	</aside>
 	<main class="box">
 		{navigation.pages.map(page_name => <ButtonSvg
-			href={page_name === "Home" ? "/" : `/${page_name.toLowerCase()}/`}
+			href={format_pagelink(page_name)}
 			text={page_name}
 			svg={page_name as PageName}
 			active={current === page_name}/>)}

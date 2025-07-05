@@ -58,7 +58,12 @@ const navigation: Navigation = {
 	]
 }
 
+function format_pagelink(page: string): string {
+	return page === "Home" ? "/" : `/${page.toLowerCase()}/`
+}
+
 export default navigation
 export {
-	type PageName
+	type PageName,
+	format_pagelink,
 }
