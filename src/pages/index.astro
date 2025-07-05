@@ -1,9 +1,9 @@
 ---
 import { PageName } from "../navigation"
-import WebPage from "../layouts/webpage.astro"
+import Root from "../layouts/root/init.astro";
 ---
 
-<WebPage current={PageName.Home}>
+<Root current={PageName.Home}>
 	<section class="center">
 		<aside>
 			<div></div>
@@ -12,10 +12,10 @@ import WebPage from "../layouts/webpage.astro"
 			<h1 class="title">rhpidfyre.io</h1>
 		</aside>
 	</section>
-</WebPage>
+</Root>
 
 <style lang="scss">
-	@use "../layouts/variables.scss";
+	@use "../layouts/root/variables.scss";
 
 	.title {
 		font-size: 2.5rem;

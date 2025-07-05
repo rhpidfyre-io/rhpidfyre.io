@@ -17,7 +17,14 @@
 		--header-button-color: #141414;
 		--header-color: #0a0a0a;
 	} @else {
-
+		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
+		--header-button-svg-color-hover: #e6e6e6;
+		--header-button-color-hover: #1e1e1e;
+		--header-border-color-hover: #282828;
+		--header-button-svg-color: #969696;
+		--header-border-color: #1e1e1e;
+		--header-button-color: #cccccc;
+		--header-color: #0a0a0a;
 	}
 }
 @mixin _root-footer-colors($scheme) {

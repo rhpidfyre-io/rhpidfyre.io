@@ -1,0 +1,73 @@
+---
+import { PageName } from "../../navigation"
+import Meta from "../../components/meta.astro"
+import Header from "../../components/header/init.astro"
+import Footer from "../../components/footer/init.astro"
+
+//Avoid const enum here
+enum Theme {
+	Dark,
+	Light,
+}
+
+interface Props {
+	current: PageName,
+}
+
+function page_name(): string {
+	switch(current) {
+		case PageName.Contact:
+			return " | Contact"
+		case PageName.Blog:
+			return " | Blog"
+		default:
+			return ""
+	}
+}
+
+const {current} = Astro.props
+---
+
+<html lang="en" data-theme={Theme.Dark.toString()}>
+	<head>
+		<Meta/>
+		<link rel="icon" type="image/webp" href="/logo.webp"/>
+		<title>{"rhpidfyre.io" + page_name()}</title>
+		<!--Client theme-->
+		<script is:inline define:vars={{ Theme }}>
+			const root = document.querySelector(":root")
+			if (!root) { return }
+
+			const prefersLight = window.matchMedia("(prefers-color-scheme: light)")
+			if (prefersLight.matches) {
+				root.setAttribute("data-theme", Theme.Light.toString())
+			}
+			prefersLight.addEventListener("change", event => {
+				root.setAttribute("data-theme", event.matches ? Theme.Light.toString() : Theme.Dark.toString())
+			})
+		</script>
+	</head>
+	<body>
+		<Header current={current}/>
+		<main>
+			<slot/>
+		</main>
+		<Footer/>
+	</body>
+</html>
+
+<style lang="scss">
+	@use "./variables.scss";
+
+	main {
+		display: grid;
+		justify-content: center;
+		align-content: center;
+		height: variables.$main-size;
+		gap: 80px;
+	}
+</style>
+
+<style lang="scss" is:global>
+	@forward "./global.scss";
+</style>
