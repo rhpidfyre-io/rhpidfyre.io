@@ -42,9 +42,11 @@
 @mixin _root-element-colors($scheme) {
 	@if $scheme == dark {
 		--button-svg-inactive-color: #1e1e1e;
-		--window-background-color: #111111;
+		--frame-background-color: #111111;
 		--element-shadow-color: #0a0a0a;
+		--button-color-hover: #141414;
 		--background-color: black;
+		--button-color: #0a0a0a;
 	} @else {
 		--background-color: white;
 	}
@@ -53,6 +55,7 @@
 @mixin _selection-colors($scheme) {
 	@if $scheme == dark {
 		--selection-background-color: #c8c8c8;
+		--selection-outline-color: #b3b3b3;
 		--selection-color: black;
 	} @else {
 		--selection-background-color: #0062d1;

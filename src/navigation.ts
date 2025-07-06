@@ -14,8 +14,8 @@ interface Navigation {
 const navigation: Navigation = {
 	pages: [
 		"Home",
-		"Blog",
 		"Projects",
+		"Blog",
 		"Contact",
 	],
 	services: [

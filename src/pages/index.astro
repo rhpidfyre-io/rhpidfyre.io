@@ -1,15 +1,20 @@
 ---
-import Root from "../layouts/root/init.astro";
+import Root from "../layouts/root/init.astro"
+import Card from "../components/index/card/init.astro"
 ---
 
 <Root current="Home">
 	<section class="center">
 		<aside>
-			<div></div>
+			<div class="rhpidfyre-logo"></div>
 		</aside>
 		<aside>
 			<h1 class="title">rhpidfyre.io</h1>
+			<h2>Developer</h2>
 		</aside>
+	</section>
+	<section class="bottom">
+		<Card/>
 	</section>
 </Root>
 
@@ -32,7 +37,7 @@ import Root from "../layouts/root/init.astro";
 		gap: 50px;
 		margin-bottom: variables.$header-margin-top;
 
-		aside div {
+		aside .rhpidfyre-logo {
 			border: 2px solid var(--header-border-color);
 			box-shadow: 8px 8px 2px 1px var(--element-shadow-color);
 			border-radius: 50%;
@@ -41,5 +46,11 @@ import Root from "../layouts/root/init.astro";
 			height: 120px;
 			width: 120px;
 		}
+		h2 {
+			margin: 0;
+		}
+	}
+	.bottom {
+		display: flex;
 	}
 </style>

@@ -1,0 +1,58 @@
+---
+type Target = astroHTML.JSX.HTMLAttributeAnchorTarget
+
+interface Props {
+	background_color?: string,
+	target?: Target,
+	height?: string,
+	width?: string,
+	color?: string,
+	href: string,
+	text: string,
+}
+
+const {
+	background_color = "var(--background-button-color)",
+	target           = "_self",
+	height           = "auto",
+	width            = "auto",
+	color            = "var(--text-color-secondary)",
+	href,
+	text
+} = Astro.props
+---
+
+<a href={href} target={target}>{text}</a>
+
+<style define:vars={{ height, width, color, background_color }}>
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: var(--width);
+		height: var(--height);
+		border: 1px solid var(--header-border-color);
+		border-radius: 10px;
+		text-decoration: none;
+		padding: 5px 25px 5px 25px;
+		color: var(--color);
+		background-color: var(--background_color);
+		overflow: hidden;
+		text-wrap: nowrap;
+		outline: none;
+		transition:
+			color var(--button-transition-leave-time),
+			border-color var(--button-transition-leave-time),
+			background-color var(--button-transition-leave-time);
+
+		&:is(:hover, :focus) {
+			background-color: var(--button-color-hover);
+			border-color: var(--background_color);
+			color: var(--text-color);
+			transition:
+				color var(--button-transition-time),
+				border-color var(--button-transition-time),
+				background-color var(--button-transition-time);
+		}
+	}
+</style>

@@ -12,9 +12,11 @@ $main-size: calc($main-height-size - $header-height-size);
 @mixin _motions($preference) {
 	@if $preference == no-preference {
 		--header-button-transition-time: .5s;
+		--button-transition-leave-time: .5s;
 		--button-transition-time: .3s;
 	} @else {
 		--header-button-transition-time: 0s;
+		--button-transition-leave-time: 0s;
 		--button-transition-time: 0s;
 	}
 }
