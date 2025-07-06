@@ -47,7 +47,7 @@ import { Theme } from "../../layouts/root/init.astro"
 					root.setAttribute("data-theme", Enum_Light_str)
 					break
 				case Theme.Dark:
-					localStorage.removeItem("theme", Enum_Dark_str)
+					localStorage.setItem("theme", Enum_Dark_str)
 					root.setAttribute("data-theme", Enum_Dark_str)
 					break
 			}
