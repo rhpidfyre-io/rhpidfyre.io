@@ -72,4 +72,6 @@
 	@include _root-header-colors($scheme);
 	@include _root-footer-colors($scheme);
 	@include _root-element-colors($scheme);
+
+	color-scheme: $scheme;
 }

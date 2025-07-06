@@ -2,7 +2,6 @@
 
 :root {
 	@include variables.css-root;
-	color-scheme: light dark;
 }
 ::selection {
 	background-color: var(--selection-background-color);
