@@ -1,12 +1,22 @@
 ---
 import ButtonImg from "../button/img.astro"
+import ThemeSelector from "./theme.astro"
 ---
 
 <footer class="copyright-section">
 	<section class="logos">
 		<div class="footer-logo"></div>
-		<ButtonImg text={Astro.generator} alt={Astro.generator} href="https://astro.build/" target="_blank" image="/footer/astro.webp" img_height="20px" height="40px" color="black"/>
+		<ButtonImg
+			text={Astro.generator}
+			alt={Astro.generator}
+			href="https://astro.build/"
+			target="_blank"
+			image="/footer/astro.webp"
+			img_height="20px"
+			height="40px"
+			color="transparent"/>
 	</section>
+	<ThemeSelector/>
 	<p>&copy; 2025 rhpidfyre.io</p>
 </footer>
 
@@ -20,7 +30,7 @@ import ButtonImg from "../button/img.astro"
 			font-size: .9rem;
 			text-align: center;
 			margin-bottom: 0;
-			color: var(--text-color-secondary);
+			color: var(--text-color-trinary);
 		}
 	}
 	.logos {

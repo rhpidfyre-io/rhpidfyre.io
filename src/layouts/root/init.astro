@@ -5,9 +5,10 @@ import Header from "../../components/header/init.astro"
 import Footer from "../../components/footer/init.astro"
 
 //Avoid const enum here
-enum Theme {
+export enum Theme {
 	Dark,
 	Light,
+	Device,
 }
 
 interface Props {
@@ -27,12 +28,22 @@ const {current} = Astro.props
 			const root = document.querySelector(":root")
 			if (!root) { return }
 
-			const prefersLight = window.matchMedia("(prefers-color-scheme: light)")
-			if (prefersLight.matches) {
-				root.setAttribute("data-theme", Theme.Light.toString())
+			const savedTheme     = localStorage.getItem("theme")
+			const prefersLight   = window.matchMedia("(prefers-color-scheme: light)")
+			const Enum_Light_str = Theme.Light.toString()
+			const Enum_Dark_str  = Theme.Dark.toString()
+
+			if (savedTheme === Enum_Light_str) {
+				root.setAttribute("data-theme", Enum_Light_str)
+			} else if (savedTheme === Enum_Dark_str) {
+				root.setAttribute("data-theme", Enum_Dark_str)
+			} else {
+				if (prefersLight.matches) {
+					root.setAttribute("data-theme", Enum_Light_str)
+				}
 			}
 			prefersLight.addEventListener("change", event => {
-				root.setAttribute("data-theme", event.matches ? Theme.Light.toString() : Theme.Dark.toString())
+				root.setAttribute("data-theme", event.matches ? Enum_Light_str : Enum_Dark_str)
 			})
 		</script>
 	</head>

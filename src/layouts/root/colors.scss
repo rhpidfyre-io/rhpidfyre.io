@@ -2,6 +2,7 @@
 	@if $scheme == dark {
 		--text-color: #c8c8c8;
 		--text-color-secondary: #969696;
+		--text-color-trinary: #505050;
 	} @else {
 
 	}
@@ -33,6 +34,7 @@
 	@if $scheme == dark {
 		--footer-border-color: #1e1e1e;
 		--footer-anchor-color: #646464;
+		--footer-theme-active: #141414;
 		--footer-color: black;
 	} @else {
 
