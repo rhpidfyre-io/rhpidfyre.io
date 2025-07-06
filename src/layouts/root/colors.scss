@@ -32,6 +32,7 @@
 
 @mixin _root-footer-colors($scheme) {
 	@if $scheme == dark {
+		--footer-button-svg-color: #646464;
 		--footer-border-color: #1e1e1e;
 		--footer-anchor-color: #646464;
 		--footer-theme-active: #141414;
