@@ -13,13 +13,13 @@ const {current} = Astro.props
 	<aside class="box">
 		{navigation.services.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} alt={service.image_alt}/>)}
 	</aside>
-	<main class="box">
+	<nav class="box">
 		{navigation.pages.map(page_name => <ButtonSvg
 			href={format_pagelink(page_name)}
 			text={page_name}
 			svg={page_name as PageName}
 			active={current === page_name}/>)}
-	</main>
+	</nav>
 </header>
 
 <style lang="scss">
