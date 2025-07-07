@@ -1,6 +1,7 @@
 ---
 import Root from "../layouts/root/init.astro"
 import Card from "../components/index/card/init.astro"
+import Os from "../components/index/os.astro"
 ---
 
 <Root current="Home">
@@ -16,6 +17,7 @@ import Card from "../components/index/card/init.astro"
 	<section class="bottom">
 		<Card/>
 	</section>
+	<Os/>
 </Root>
 
 <style lang="scss">
@@ -35,7 +37,7 @@ import Card from "../components/index/card/init.astro"
 		align-items: center;
 		justify-content: center;
 		gap: 50px;
-		margin-bottom: variables.$header-margin-top;
+		margin: 30vh 0 variables.$header-margin-top 0;
 
 		aside .rhpidfyre-logo {
 			border: 2px solid var(--header-border-color);
@@ -52,5 +54,7 @@ import Card from "../components/index/card/init.astro"
 	}
 	.bottom {
 		display: flex;
+		margin-bottom: 25vh;
+		margin-inline: auto;
 	}
 </style>

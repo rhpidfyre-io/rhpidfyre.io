@@ -1,0 +1,67 @@
+---
+import Button from "../button/init.astro"
+---
+
+<section class="rhpidfyre-os">
+	<h1>Looking for rhpidfyre OS?</h1>
+	<h2>rhpidfyre OS is a Linux distribution based on <a href="https://archlinux.org/" target="_blank">Arch Linux</a>, It is 'plug & play' with tweaks for performance & productivity.</h2>
+	<i>- It's just a hobbyist distro I made for myself :).</i>
+	<div>
+		<Button
+			text="Download"
+			href="https://linux.rhpidfyre.io/download/"
+			height="30px"
+			background_color="hsl(0,0%,80%)"
+			color="black"/>
+		<Button
+			text="Learn More"
+			href="https://linux.rhpidfyre.io/"
+			height="30px"
+			background_color="transparent"
+			color="var(--text-color)"/>
+	</div>
+</section>
+
+<style>
+	.rhpidfyre-os {
+		display: grid;
+		justify-content: center;
+		width: 100vw;
+		gap: 10px;
+		padding: 100px 0 100px 0;
+		background: var(--rhpidfyre-os-background);
+		border-top: 1.5px solid var(--footer-border-color);
+		border-bottom: 1.5px solid var(--footer-border-color);
+	}
+
+	div {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+	}
+	h1, h2 {
+		margin: 0;
+		text-align: center;
+	}
+	h1 {
+		font-size: 2rem;
+		margin-bottom: 10px;
+	}
+	h2 {
+		font-size: 1.2rem;
+		margin-top: 10px;
+	}
+	a {
+		color: var(--text-color-secondary);
+
+		&:is(:hover, :focus) {
+			color: var(--text-color);
+		}
+	}
+	i {
+		font-size: 1.1rem;
+		text-align: center;
+		margin-bottom: 30px;
+		color: var(--text-color-trinary)
+	}
+</style>

@@ -45,13 +45,14 @@
 @mixin _root-element-colors($scheme) {
 	@if $scheme == dark {
 		--button-svg-inactive-color: hsl(0, 0%, 12%);
+		--rhpidfyre-os-background: linear-gradient(50deg, rgba(18, 18, 18, 1) 0%, rgba(0, 0, 0, 1) 100%);
 		--frame-background-color: hsl(0, 0%, 7%);
 		--element-shadow-color: hsl(0, 0%, 4%);
 		--button-color-hover: hsl(0, 0%, 8%);
 		--background-color: hsl(0, 0%, 0%);
 		--button-color: hsl(0, 0%, 4%);
 	} @else {
-		--background-color: hsl(0, 0%, 100%);
+		/* --background-color: hsl(0, 0%, 100%); */
 	}
 }
 
@@ -61,8 +62,8 @@
 		--selection-outline-color: hsl(0, 0%, 70%);
 		--selection-color: hsl(0, 0%, 0%);
 	} @else {
-		--selection-background-color: #0062d1;
-		--selection-color: white;
+		/* --selection-background-color: #0062d1;
+		--selection-color: white; */
 	}
 }
 

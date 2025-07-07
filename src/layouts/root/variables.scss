@@ -5,9 +5,6 @@ $ENUM_LIGHT: "1";
 
 $header-height-size: 55px;
 $header-margin-top:  20px;
-$main-height-size:   100vh;
-
-$main-size: calc($main-height-size - $header-height-size);
 
 @mixin _motions($preference) {
 	@if $preference == no-preference {
