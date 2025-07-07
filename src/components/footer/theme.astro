@@ -20,12 +20,14 @@ import { Theme } from "../../layouts/root/init.astro"
 	</button>
 	<script is:inline define:vars={{ Theme }}>
 		const root = document.querySelector(":root")
-		if (!root) { return }
+		if (!root) { throw new Error(":root element is:" + root) }
 
 		const button_device = document.getElementById("button-device-theme")
 		const button_light  = document.getElementById("button-light-theme")
 		const button_dark   = document.getElementById("button-dark-theme")
-		if (!(button_device && button_light && button_dark)) { return }
+		if (!(button_device && button_light && button_dark)) {
+			throw new Error(`button_device=${button_device} button_light=${button_light} button_dark=${button_dark}`)
+		}
 
 		const savedTheme     = localStorage.getItem("theme")
 		const Enum_Light_str = Theme.Light.toString()
