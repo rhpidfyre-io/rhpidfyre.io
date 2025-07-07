@@ -1,10 +1,12 @@
-@use "./colors.scss";
+@use "../layouts/root/colors.scss";
 
 $ENUM_DARK:  "0";
 $ENUM_LIGHT: "1";
 
 $header-height-size: 55px;
 $header-margin-top:  20px;
+
+$index-section-padding: 100px 0 100px 0;
 
 @mixin _motions($preference) {
 	@if $preference == no-preference {

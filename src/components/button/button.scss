@@ -1,4 +1,4 @@
-@use "../../layouts/root/variables.scss";
+@use "../../scss/variables.scss";
 
 @mixin element($text-width, $is-svg, $color, $height) {
 	a {

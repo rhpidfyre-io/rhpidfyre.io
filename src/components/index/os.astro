@@ -22,13 +22,15 @@ import Button from "../button/init.astro"
 	</div>
 </section>
 
-<style>
+<style lang="scss">
+	@use "../../scss/variables.scss";
+
 	.rhpidfyre-os {
 		display: grid;
 		justify-content: center;
 		width: 100vw;
 		gap: 10px;
-		padding: 100px 0 100px 0;
+		padding: variables.$index-section-padding;
 		background: var(--rhpidfyre-os-background);
 		border-top: 1.5px solid var(--footer-border-color);
 		border-bottom: 1.5px solid var(--footer-border-color);
