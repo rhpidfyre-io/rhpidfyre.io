@@ -3,20 +3,27 @@ import CardButton from "./button.astro"
 import CardSection, { CardSectionSvg } from "./section.astro"
 ---
 
-<div>
-	<CardSection title="Web" svg={CardSectionSvg.Web}/>
-	<CardButton text="Web Projects &rarr;"/>
-</div>
-<div>
-	<CardSection title="Software" svg={CardSectionSvg.Software}/>
-	<CardButton text="Software Projects &rarr;"/>
-</div>
-<div>
-	<CardSection title="Cloud & Servers" svg={CardSectionSvg.Cloud}/>
-	<CardButton text="Services &rarr;"/>
-</div>
+<section class="card">
+	<div>
+		<CardSection title="Web" svg={CardSectionSvg.Web}/>
+		<CardButton text="Web Projects &rarr;"/>
+	</div>
+	<div>
+		<CardSection title="Software" svg={CardSectionSvg.Software}/>
+		<CardButton text="Software Projects &rarr;"/>
+	</div>
+	<div>
+		<CardSection title="Cloud & Servers" svg={CardSectionSvg.Cloud}/>
+		<CardButton text="Services &rarr;"/>
+	</div>
+</section>
 
 <style>
+	.card {
+		display: flex;
+		margin-bottom: 25vh;
+		margin-inline: auto;
+	}
 	div {
 		--frame-border: 1.5px solid var(--footer-border-color);
 
