@@ -3,10 +3,6 @@
 $ENUM_DARK:  "0";
 $ENUM_LIGHT: "1";
 
-$header-height-size: 55px;
-
-$index-section-padding: 100px 0 100px 0;
-
 @mixin _motions($preference) {
 	@if $preference == no-preference {
 		--header-button-transition-time: .5s;

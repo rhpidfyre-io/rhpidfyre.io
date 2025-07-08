@@ -1,7 +1,6 @@
 ---
 import Root from "../layouts/root/init.astro"
 import Card from "../components/index/card/init.astro"
-import Info from "../components/index/info.astro"
 import Os from "../components/index/os.astro"
 ---
 
@@ -17,12 +16,9 @@ import Os from "../components/index/os.astro"
 	</section>
 	<Card/>
 	<Os/>
-	<Info/>
 </Root>
 
-<style lang="scss">
-	@use "../scss/variables.scss";
-
+<style>
 	.title {
 		font-size: 2.5rem;
 		text-align: center;

@@ -42,7 +42,7 @@
 @mixin _root-element-colors($scheme) {
 	@if $scheme == dark {
 		--button-svg-inactive-color: hsl(0, 0%, 12%);
-		--rhpidfyre-os-background: linear-gradient(50deg, rgba(18, 18, 18, 1) 0%, rgba(0, 0, 0, 1) 100%);
+		--rhpidfyre-os-background: linear-gradient(50deg, rgba(10, 10, 10, 1) 0%, rgba(0, 0, 0, 1) 100%);
 		--frame-background-color: hsl(0, 0%, 7%);
 		--element-shadow-color: hsl(0, 0%, 4%);
 		--button-color-hover: hsl(0, 0%, 8%);
