@@ -10,23 +10,20 @@
 
 @mixin _root-header-colors($scheme) {
 	@if $scheme == dark {
+		--header-scroll-border-bottom-color: hsl(0, 0%, 20%);
+		--header-scroll-background-color: rgba(0,0,0,.5);
 		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
 		--header-button-svg-color-hover: hsl(0, 0%, 90%);
+		--header-border-bottom-color: hsl(0, 0%, 0%);
 		--header-button-color-hover: hsl(0, 0%, 12%);
 		--header-border-color-hover: hsl(0, 0%, 16%);
 		--header-button-svg-color: hsl(0, 0%, 59%);
 		--header-border-color: hsl(0, 0%, 12%);
 		--header-button-color: hsl(0, 0%, 8%);
 		--header-color: hsl(0, 0%, 4%);
+
 	} @else {
-		--header-button-text-background: linear-gradient(150deg, rgba(230, 230, 230, 1) 0%, rgba(150, 150, 150, 1) 100%);
-		--header-button-svg-color-hover: hsl(0, 0%, 90%);
-		--header-button-color-hover: hsl(0, 0%, 12%);
-		--header-border-color-hover: hsl(0, 0%, 16%);
-		--header-button-svg-color: hsl(0, 0%, 59%);
-		--header-border-color: hsl(0, 0%, 12%);
-		--header-button-color: hsl(0, 0%, 80%);
-		--header-color: hsl(0, 0%, 4%);
+
 	}
 }
 

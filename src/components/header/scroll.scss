@@ -1,0 +1,13 @@
+/* Just gonna keep this script here incase the issue is ever fixed */
+
+@mixin header {
+	background-color: var(--header-scroll-background-color);
+	border-bottom: 1px solid var(--header-scroll-border-bottom-color);
+	backdrop-filter: blur(8px);
+	transition: border-bottom var(--button-transition-time);
+
+	& > .box {
+		box-shadow: 0px 0px 0px 0px var(--element-shadow-color);
+		transition: box-shadow var(--button-transition-time);
+	}
+}

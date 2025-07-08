@@ -9,7 +9,7 @@ interface Props {
 const {current} = Astro.props
 ---
 
-<header>
+<header class="topbar" id="header-nav">
 	<aside class="box">
 		{navigation.services.map(service => <ButtonImg text={service.name} href={service.href} image={service.image} alt={service.image_alt}/>)}
 	</aside>
@@ -20,17 +20,61 @@ const {current} = Astro.props
 			svg={page_name as PageName}
 			active={current === page_name}/>)}
 	</nav>
+	<script is:inline>
+		const header = document.getElementById("header-nav")
+		if (!header) { throw new Error("header element is: " + header) }
+
+		window.addEventListener("scroll", () => {
+			if (window.scrollY > 50) {
+				header.classList.add("scroll")
+			} else {
+				header.classList.remove("scroll")
+			}
+		})
+	</script>
+	<noscript>
+		<!--
+		https://github.com/withastro/astro/issues/14055
+		@use "./scroll";
+		header {
+			@include scroll.header;
+		}
+		-->
+		<style>
+			noscript { /*???*/
+				display: none;
+			}
+			.topbar {
+				background-color: var(--header-scroll-background-color);
+				border-bottom: 1px solid var(--header-scroll-border-bottom-color) !important;
+				backdrop-filter: blur(8px);
+				transition: border-bottom var(--button-transition-time);
+				& > .box {
+					box-shadow: 0px 0px 0px 0px var(--element-shadow-color);
+					transition: box-shadow var(--button-transition-time);
+				}
+			}
+		</style>
+	</noscript>
 </header>
 
 <style lang="scss">
-	@use "../../scss/variables";
+	@use "./scroll";
 
-	header {
+	.topbar {
 		display: flex;
 		justify-content: space-between;
-		margin-top: variables.$header-margin-top;
-		padding: 0 25px 0 25px;
-		height: variables.$header-height-size;
+		align-items: center;
+		padding: 15px 25px 15px 25px;
+		height: 55px;
+		top: 0;
+		position: sticky;
+		border-bottom: 0px solid var(--header-border-bottom-color);
+		transition: border-bottom var(--header-button-transition-time);
+
+		&.scroll {
+			@include scroll.header;
+		}
 	}
 	.box {
 		display: flex;
@@ -43,5 +87,6 @@ const {current} = Astro.props
 		border-radius: 15px;
 		padding: 0 15px 0 15px;
 		box-shadow: 8px 8px 2px 1px var(--element-shadow-color);
+		transition: box-shadow var(--header-button-transition-time);
 	}
 </style>
