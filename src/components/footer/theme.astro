@@ -20,14 +20,15 @@ import { Theme } from "../../layouts/root/init.astro"
 	</button>
 	<script is:inline define:vars={{ Theme }}>
 		const root = document.querySelector(":root")
-		if (!root) { throw new Error(":root element is:" + root) }
+		if (!root)
+			throw new Error(":root element is:" + root)
 
 		const button_device = document.getElementById("button-device-theme")
 		const button_light  = document.getElementById("button-light-theme")
 		const button_dark   = document.getElementById("button-dark-theme")
-		if (!(button_device && button_light && button_dark)) {
+
+		if (!(button_device && button_light && button_dark))
 			throw new Error(`button_device=${button_device} button_light=${button_light} button_dark=${button_dark}`)
-		}
 
 		const savedTheme     = localStorage.getItem("theme")
 		const Enum_Light_str = Theme.Light.toString()
@@ -40,18 +41,18 @@ import { Theme } from "../../layouts/root/init.astro"
 		}
 		function toggle_theme_click(button, color_theme) {
 			switch (color_theme) {
-				case Theme.Device:
-					localStorage.removeItem("theme")
-					root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: light)").matches ? Enum_Light_str : Enum_Dark_str)
-					break
-				case Theme.Light:
-					localStorage.setItem("theme", Enum_Light_str)
-					root.setAttribute("data-theme", Enum_Light_str)
-					break
-				case Theme.Dark:
-					localStorage.setItem("theme", Enum_Dark_str)
-					root.setAttribute("data-theme", Enum_Dark_str)
-					break
+			case Theme.Device:
+				localStorage.removeItem("theme")
+				root.setAttribute("data-theme", window.matchMedia("(prefers-color-scheme: light)").matches ? Enum_Light_str : Enum_Dark_str)
+				break
+			case Theme.Light:
+				localStorage.setItem("theme", Enum_Light_str)
+				root.setAttribute("data-theme", Enum_Light_str)
+				break
+			case Theme.Dark:
+				localStorage.setItem("theme", Enum_Dark_str)
+				root.setAttribute("data-theme", Enum_Dark_str)
+				break
 			}
 			toggle_all_off()
 			button.classList.toggle("active")
