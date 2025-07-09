@@ -12,17 +12,17 @@ export enum Theme {
 }
 
 interface Props {
-	current: PageName,
+	name: PageName,
 }
 
-const {current} = Astro.props
+const {name} = Astro.props
 ---
 
 <html lang="en" data-theme={Theme.Dark.toString()}>
 	<head>
 		<Meta/>
 		<link rel="icon" type="image/webp" href="/logo.webp"/>
-		<title>{"rhpidfyre.io" + (current === "Home" ? "" : " | " + current)}</title>
+		<title>{"rhpidfyre.io" + (name === "Home" ? "" : " | " + name)}</title>
 		<!--Client theme-->
 		<script is:inline define:vars={{ Theme }}>
 			const root = document.querySelector(":root")

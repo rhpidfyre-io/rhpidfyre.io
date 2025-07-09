@@ -1,4 +1,4 @@
-type PageName = "Home" | "Blog" | "Contact" | "Projects"
+type PageName = "Home" | "Blog" | "Contact" | "Projects" | "404" | "500"
 
 interface Service {
 	image_alt: string,
@@ -12,6 +12,7 @@ interface Navigation {
 }
 
 const navigation: Navigation = {
+	//Visible pages to the user via ui navigation
 	pages: [
 		"Home",
 		"Projects",
