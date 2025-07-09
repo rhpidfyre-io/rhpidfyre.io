@@ -4,9 +4,9 @@ import ButtonImg from "../button/img.astro"
 import navigation, { type PageName, format_pagelink } from "../../navigation"
 
 interface Props {
-	current: PageName
+	active_page: PageName
 }
-const {current} = Astro.props
+const {active_page} = Astro.props
 ---
 
 <header class="topbar" id="header-nav">
@@ -18,7 +18,7 @@ const {current} = Astro.props
 			href={format_pagelink(page_name)}
 			text={page_name}
 			svg={page_name as PageName}
-			active={current === page_name}/>)}
+			active={active_page === page_name}/>)}
 	</nav>
 	<script is:inline>
 		const header = document.getElementById("header-nav")
