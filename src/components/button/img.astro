@@ -28,7 +28,7 @@ const text_size = clamp(4, text.length, 8).toString() + "em"
 ---
 
 <a href={href} target={target}>
-	<img src={image} alt={alt} height={img_height}>
+	<img src={image} alt={alt} height={img_height} loading="lazy">
 	<p>{text}</p>
 </a>
 
