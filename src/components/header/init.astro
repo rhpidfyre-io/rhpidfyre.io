@@ -1,12 +1,14 @@
 ---
 import ButtonSvg from "../button/svg.astro"
 import ButtonImg from "../button/img.astro"
+import JsScrollDetection from "./scrollDetection.astro"
 import navigation, { type PageName, format_pagelink } from "../../navigation"
 
 interface Props {
-	active_page: PageName
+	active_page: PageName,
+	scroll_enabled: boolean,
 }
-const {active_page} = Astro.props
+const {active_page, scroll_enabled} = Astro.props
 ---
 
 <header class="topbar" id="header-nav">
@@ -20,53 +22,20 @@ const {active_page} = Astro.props
 			svg={page_name as PageName}
 			active={active_page === page_name}/>)}
 	</nav>
-	<script is:inline>
-		const header = document.getElementById("header-nav")
-		if (!header)
-			throw new Error("header element is: " + header)
-
-		window.addEventListener("scroll", () => {
-			if (window.scrollY > 50)
-				header.classList.add("scroll")
-			else
-				header.classList.remove("scroll")
-		})
-	</script>
-	<noscript>
-		<!--
-		https://github.com/withastro/astro/issues/14055
-		@use "./scroll";
-		header {
-			@include scroll.header;
-		}
-		-->
-		<style>
-			noscript { /*???*/
-				display: none;
-			}
-			.topbar {
-				background-color: var(--header-scroll-background-color);
-				border-bottom: 1px solid var(--header-scroll-border-bottom-color) !important;
-				backdrop-filter: blur(8px);
-				transition: border-bottom var(--button-transition-time);
-				& > .box {
-					box-shadow: 0px 0px 0px 0px var(--element-shadow-color);
-					transition: box-shadow var(--button-transition-time);
-				}
-			}
-		</style>
-	</noscript>
+	<!--If scrolling is disabled dont ship the JS-->
+	{scroll_enabled ? <JsScrollDetection/> : <></>}
 </header>
 
 <style lang="scss">
 	@use "./scroll";
+	@use "../../scss/variables.scss";
 
 	.topbar {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 15px 25px 15px 25px;
-		height: 55px;
+		height: variables.$header-height;
 		top: 0;
 		position: sticky;
 		border-bottom: 0px solid var(--header-border-bottom-color);

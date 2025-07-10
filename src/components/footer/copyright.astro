@@ -1,6 +1,6 @@
 ---
 import ButtonImg from "../button/img.astro"
-import ThemeSelector from "./theme.astro"
+import ThemeSelector from "./theme/init.astro"
 ---
 
 <footer class="copyright-section">
@@ -14,7 +14,8 @@ import ThemeSelector from "./theme.astro"
 			image="/footer/astro.webp"
 			img_height="20px"
 			height="40px"
-			color="transparent"/>
+			color="transparent"
+			loading="lazy"/>
 		<ThemeSelector/>
 	</section>
 	<a href="https://raw.githubusercontent.com/rhpidfyre-io/rhpidfyre.io/refs/heads/master/LICENSE" class="copyright">rhpidfyre-io &copy; 2025 rhpidfyre</a>

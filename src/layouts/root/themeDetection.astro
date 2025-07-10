@@ -1,0 +1,26 @@
+---
+import Theme from "./init.astro"
+---
+
+<script is:inline define:vars={{ Theme }}>
+const root = document.querySelector(":root")
+if (!root)
+	throw new Error(":root element is:" + root)
+
+const savedTheme     = localStorage.getItem("theme")
+const prefersLight   = window.matchMedia("(prefers-color-scheme: light)")
+const Enum_Light_str = Theme.Light.toString()
+const Enum_Dark_str  = Theme.Dark.toString()
+
+if (savedTheme === Enum_Light_str) {
+	root.setAttribute("data-theme", Enum_Light_str)
+} else if (savedTheme === Enum_Dark_str) {
+	root.setAttribute("data-theme", Enum_Dark_str)
+} else {
+	if (prefersLight.matches)
+		root.setAttribute("data-theme", Enum_Light_str)
+}
+prefersLight.addEventListener("change", event => {
+	root.setAttribute("data-theme", event.matches ? Enum_Light_str : Enum_Dark_str)
+})
+</script>

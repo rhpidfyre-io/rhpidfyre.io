@@ -1,0 +1,39 @@
+---
+---
+
+<script is:inline>
+const header = document.getElementById("header-nav")
+if (!header)
+	throw new Error("header element is: " + header)
+
+window.addEventListener("scroll", () => {
+	if (window.scrollY > 50)
+		header.classList.add("scroll")
+	else
+		header.classList.remove("scroll")
+})
+</script>
+<noscript>
+	<!--
+	https://github.com/withastro/astro/issues/14055
+	@use "./scroll";
+	header {
+		@include scroll.header;
+	}
+	-->
+	<style>
+		noscript { /*???*/
+			display: none;
+		}
+		.topbar {
+			background-color: var(--header-scroll-background-color);
+			border-bottom: 1px solid var(--header-scroll-border-bottom-color) !important;
+			backdrop-filter: blur(8px);
+			transition: border-bottom var(--button-transition-time);
+			& > .box {
+				box-shadow: 0px 0px 0px 0px var(--element-shadow-color);
+				transition: box-shadow var(--button-transition-time);
+			}
+		}
+	</style>
+</noscript>
