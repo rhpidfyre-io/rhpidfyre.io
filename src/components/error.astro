@@ -1,0 +1,37 @@
+---
+interface Props {
+	type: "404" | "500"
+}
+const {type} = Astro.props
+---
+
+<section>
+	<h1>{type}</h1>
+	<p>{type === "404" ? "This page could not be found." : "Internal server error."}</p>
+</section>
+
+<style lang="scss">
+	@use "../scss/variables.scss";
+
+	section {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+		height: calc(100vh - variables.$header-height);
+	}
+	p {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+
+		&::before {
+			content: "";
+			height: 50px;
+			width: 1px;
+			background-color: var(--text-color-trinary);
+			display: block;
+		}
+	}
+</style>

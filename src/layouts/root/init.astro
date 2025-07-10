@@ -14,9 +14,10 @@ export enum Theme {
 
 interface Props {
 	name: PageName,
+	overflow?: "hidden" | "scroll",
 }
 
-const {name} = Astro.props
+const {name, overflow = "scroll"} = Astro.props
 ---
 
 <html lang="en" data-theme={Theme.Dark.toString()}>
@@ -28,7 +29,7 @@ const {name} = Astro.props
 		<JsThemeDetection/>
 	</head>
 	<body>
-		<Header active_page={name}/>
+		<Header active_page={name} scroll_enabled={overflow === "scroll"}/>
 		<main>
 			<slot/>
 		</main>
@@ -42,6 +43,43 @@ const {name} = Astro.props
 	}
 </style>
 
-<style lang="scss" is:global>
-	@forward "./global.scss";
+<style lang="scss" is:global define:vars={{ overflow }}>
+	@use "../../scss/variables.scss";
+
+	:root {
+		@include variables.css-root;
+		scroll-behavior: smooth;
+	}
+	::selection {
+		background-color: var(--selection-background-color);
+		color: var(--selection-color);
+		-webkit-text-fill-color: var(--selection-color);
+	}
+	body {
+		font-family: -apple-system, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla";
+		box-sizing: border-box;
+		margin: 0;
+		background-color: var(--background-color);
+		overflow: hidden var(--overflow);
+	}
+	h1, p {
+		color: var(--text-color);
+	}
+	h2 {
+		font-weight: normal;
+		color: var(--text-color-secondary);
+	}
+	a {
+		color: var(--text-color);
+
+		&:hover {
+			cursor: pointer;
+		}
+		&:is(:active, :visited) {
+			color: var(--text-color);
+		}
+	}
+	button:hover {
+		cursor: pointer;
+	}
 </style>

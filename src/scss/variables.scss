@@ -3,6 +3,8 @@
 $ENUM_DARK:  "0";
 $ENUM_LIGHT: "1";
 
+$header-height: 55px;
+
 @mixin _motions($preference) {
 	@if $preference == no-preference {
 		--header-button-transition-time: .5s;

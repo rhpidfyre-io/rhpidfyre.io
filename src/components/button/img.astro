@@ -2,9 +2,11 @@
 import clamp from "./clamp"
 
 type Target = astroHTML.JSX.HTMLAttributeAnchorTarget
+type Loading = astroHTML.JSX.ImgHTMLAttributes["loading"]
 
 interface Props {
 	img_height?: string,
+	loading?: Loading,
 	height?: string,
 	target?: Target,
 	color?: string,
@@ -21,14 +23,15 @@ const {
 	height     = "35px",
 	img_height = "25px",
 	target     = "_self",
-	color      = "var(--header-button-color)"
+	color      = "var(--header-button-color)",
+	loading    = "eager"
 } = Astro.props
 
 const text_size = clamp(4, text.length, 8).toString() + "em"
 ---
 
 <a href={href} target={target}>
-	<img src={image} alt={alt} height={img_height} loading="lazy">
+	<img src={image} alt={alt} height={img_height} loading={loading}>
 	<p>{text}</p>
 </a>
 
