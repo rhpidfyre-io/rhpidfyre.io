@@ -20,6 +20,7 @@ $header-height: 55px;
 @mixin css-root {
 	@include colors.root(dark);
 	@include _motions(no-preference);
+
 	@media (prefers-color-scheme: light) {
 		@include colors.root(light);
 	}
