@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.11.0",
+    "autoprefixer": "^10.4.21",
     "sass": "^1.89.2"
   }
 }
