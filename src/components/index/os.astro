@@ -3,6 +3,26 @@ import Button from "../button/init.astro"
 ---
 
 <section class="rhpidfyre-os">
+	<pre>
+                 -`
+                .o+`
+               `ooo/
+              `+oooo:
+             `+oooooo:
+             -+oooooo+:
+           `/:-:++oooo+:
+          `/++++/+++++++:
+         `/++++++++++++++:
+        `/+++ooooooooooooo/`
+       ./ooosssso++osssssso+`
+      .oossssso-````/ossssss+`
+     -osssssso.      :ssssssso.
+    :osssssss/        osssso+++.
+   /ossssssss/        +ssssooo/-
+ `/ossssso+/:-        -:/+osssso+-
+`+sso+:-`                 `.-/+oso:
+`++:.                           `-/+/
+.`                                 `/</pre>
 	<h1>Looking for rhpidfyre OS?</h1>
 	<h2>rhpidfyre OS is a Linux distribution based on <a href="https://archlinux.org/" target="_blank">Arch Linux</a>, It is 'plug & play' with tweaks for performance & productivity.</h2>
 	<i>- It's just a hobbyist distro I made for myself :).</i>
@@ -22,15 +42,15 @@ import Button from "../button/init.astro"
 	</div>
 </section>
 
+
 <style>
 	.rhpidfyre-os {
 		display: grid;
 		justify-content: center;
 		width: 100vw;
 		gap: 10px;
-		padding: 150px 0 150px 0;
-		background: var(--rhpidfyre-os-background);
-		border-top: 1.5px solid var(--footer-border-color);
+		padding: 300px 0 300px 0;
+		position: relative;
 	}
 
 	div {
@@ -62,5 +82,21 @@ import Button from "../button/init.astro"
 		text-align: center;
 		margin-bottom: 30px;
 		color: var(--text-color-trinary)
+	}
+	pre {
+		display: flex;
+		justify-content: center;
+		font-weight: bold;
+		font-size: 1.2rem;
+		z-index: -1;
+        letter-spacing: 1px;
+        top: 13%;
+        left: 0;
+        right: 0;
+		color: rgb(20,20,20);
+		pointer-events: none;
+		user-select: none;
+		white-space: pre;
+		position: absolute;
 	}
 </style>
