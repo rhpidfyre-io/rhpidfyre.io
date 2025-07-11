@@ -5,6 +5,7 @@ import ThemeSelector from "./theme/init.astro"
 
 <footer class="copyright-section">
 	<section class="logos">
+		<ThemeSelector/>
 		<div class="footer-logo"></div>
 		<ButtonImg
 			text={Astro.generator}
@@ -16,7 +17,6 @@ import ThemeSelector from "./theme/init.astro"
 			height="40px"
 			color="transparent"
 			loading="lazy"/>
-		<ThemeSelector/>
 	</section>
 	<a href="https://raw.githubusercontent.com/rhpidfyre-io/rhpidfyre.io/refs/heads/master/LICENSE" class="copyright">rhpidfyre-io &copy; 2025 rhpidfyre</a>
 </footer>
