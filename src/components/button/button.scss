@@ -6,62 +6,59 @@
 	}
 }
 
-@mixin _hover-header($text-width) {
+@mixin _hovering($text-width) {
 	width: $text-width;
 	outline: none;
 	background-color: var(--header-button-color-hover);
 	border-color: var(--header-border-color-hover);
-	& > p {
+	transition: width var(--header-button-transition-time), background-color var(--header-button-transition-time);
+
+	> p {
 		opacity: 1;
 		position: relative;
+		transition: width var(--header-button-transition-time), opacity var(--header-button-transition-time);
 	}
 }
 
 @mixin _hover($text-width, $is-svg) {
 	&:is(:hover, :focus) {
-		@include _hover-header($text-width);
+		@include _hovering($text-width);
 		@if not $is-svg {
 			@media (prefers-color-scheme: dark) {
-				& > img {
+				> img {
 					filter: grayscale(0%);
 					transition: filter var(--header-button-transition-time);
 				}
 			}
 		}
-		& > p {
-			transition: width var(--header-button-transition-time), opacity var(--header-button-transition-time);
-		}
-		transition: width var(--header-button-transition-time), background-color var(--header-button-transition-time);
-	}
-}
-
-@mixin _svg($text-width, $is-svg) {
-	&[data-active="true"] {
-		@include _hover-header($text-width);
-		& > svg {
-			fill: var(--header-button-svg-color-hover)
-		}
-	}
-	&[data-active="false"] {
-		@include _hover($text-width, $is-svg);
-	}
-	svg {
-		fill: var(--header-button-svg-color);
-		overflow: visible;
-	}
-}
-
-@mixin _img($text-width, $is-svg) {
-	@include _hover($text-width, $is-svg);
-	@media (prefers-color-scheme: dark) {
-		img {
-			filter: grayscale(100%);
-			transition: filter var(--header-button-transition-time);
-		}
 	}
 }
 
 @mixin anchor-header($text-width, $is-svg, $color, $height) {
+	@if $is-svg {
+		&[data-active="true"] {
+			@include _hovering($text-width);
+			> svg {
+				fill: var(--header-button-svg-color-hover)
+			}
+		}
+		&[data-active="false"] {
+			@include _hover($text-width, $is-svg);
+		}
+		svg {
+			fill: var(--header-button-svg-color);
+			overflow: visible;
+		}
+	} @else {
+		@include _hover($text-width, $is-svg);
+		@media (prefers-color-scheme: dark) {
+			img {
+				filter: grayscale(100%);
+				transition: filter var(--header-button-transition-time);
+			}
+		}
+	}
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -75,12 +72,6 @@
 	width: 35px;
 	overflow: hidden;
 	transition: width var(--header-button-transition-time), background-color var(--header-button-transition-time);
-
-	@if $is-svg {
-		@include _svg($text-width, $is-svg);
-	} @else {
-		@include _img($text-width, $is-svg);
-	}
 
 	p {
 		opacity: 0;
