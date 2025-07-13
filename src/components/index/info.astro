@@ -1,0 +1,33 @@
+---
+import Card from "./card/init.astro"
+---
+
+<section class="info">
+	<h1>Frontend & Backend Developer</h1>
+	<h2>I prioritize efficiency, productivity, and teamwork to deliver impactful solutions. I thrive in collaborative environments, streamlining workflows and optimizing code for high-performance results. My focus on clear communication and shared goals ensures smooth project execution and alignment. Explore my work to see how I combine technical expertise with a results-driven, team-oriented approach.</h2>
+	<Card/>
+</section>
+
+<style>
+	h1, h2 {
+		margin: 0;
+		text-align: center;
+	}
+	h1 {
+		font-size: 2rem;
+		margin-bottom: 10px;
+	}
+	h2 {
+		font-size: 1.2rem;
+		margin-top: 10px;
+		max-width: 1000px;
+	}
+	.info {
+		display: grid;
+		justify-content: center;
+		padding: 100px 0 100px 0;
+		background: var(--rhpidfyre-os-background);
+		border-top: 1.5px solid var(--footer-border-color);
+		border-bottom: 1.5px solid var(--footer-border-color);
+	}
+</style>

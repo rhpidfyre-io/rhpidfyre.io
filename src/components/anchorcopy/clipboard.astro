@@ -1,0 +1,30 @@
+---
+interface Props {
+	id: string,
+	id_formatted: string,
+	copy_formatted: string,
+	copied_formatted: string,
+}
+const {id, id_formatted, copy_formatted, copied_formatted} = Astro.props
+---
+
+<script is:inline define:vars={{ id, id_formatted, copy_formatted, copied_formatted }}>
+const clipboard_button = document.getElementById(id_formatted)
+const copied_svg       = document.getElementById(copied_formatted)
+const copy_svg         = document.getElementById(copy_formatted)
+
+if (!(clipboard_button && copied_svg && copy_svg))
+	throw new Error(`clipboard_button=${clipboard_button} copied_svg=${copied_svg} copy_svg=${copy_svg}`)
+
+const clean_copy = window.location.href.split("#")[0] + "#" + id
+function copied(showing) {
+	copy_svg.style.display = showing ? "none" : "block"
+	copied_svg.style.display = showing ? "block" : "none"
+}
+
+clipboard_button.addEventListener("click", () => {
+	navigator.clipboard.writeText(clean_copy)
+	copied(true)
+	setTimeout(() => copied(false), 5000)
+})
+</script>
