@@ -7,10 +7,10 @@ import Os from "../components/index/os.astro"
 <Root name="Home">
 	<section class="center">
 		<aside>
-			<img src="https://avatars.githubusercontent.com/u/80614657" alt="avatar"/>
+			<div></div>
 		</aside>
 		<aside>
-			<h1 class="title">rhpidfyre.io</h1>
+			<h1 class="title">rhpidfyre</h1>
 			<h2>Developer</h2>
 		</aside>
 	</section>
@@ -35,7 +35,9 @@ import Os from "../components/index/os.astro"
 		gap: 50px;
 		margin: 300px 0 300px 0;
 
-		aside > img {
+		aside div {
+			background-image: url("https://avatars.githubusercontent.com/u/80614657");
+			background-repeat: round;
 			border: 2px solid var(--header-border-color);
 			box-shadow: 8px 8px 2px 1px var(--element-shadow-color);
 			height: 120px;
