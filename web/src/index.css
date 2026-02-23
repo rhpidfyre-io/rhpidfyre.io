@@ -26,6 +26,7 @@ button:disabled,
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
@@ -145,10 +146,12 @@ button:disabled,
 }
 
 body {
-	margin: 0;
 	display: flex;
-	place-items: center;
-	min-width: 320px;
-	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	height: 100%;
 	overflow-x: hidden;
+	background-color: black;
+	color: #e6e6e6;
 }
