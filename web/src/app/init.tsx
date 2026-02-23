@@ -1,11 +1,11 @@
-import { Link } from "react-router";
+import { Link, type To } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Globe, MessageCircleMore, Server } from "lucide-react";
 import Header from "./header";
 import Footer from "./footer";
 
 interface MenuButton {
-	to: string;
+	to: To;
 	children: string;
 }
 function MenuButton({ to, children }: MenuButton) {
