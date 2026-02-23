@@ -11,7 +11,7 @@ interface MenuButton {
 function MenuButton({ to, children }: MenuButton) {
 	return (
 		<Link to={to} className="w-full [&>button]:w-full">
-			<Button className="px-10">{children}</Button>
+			<Button className="px-13">{children}</Button>
 		</Link>
 	);
 }
