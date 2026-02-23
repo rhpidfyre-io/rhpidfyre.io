@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Link, type To } from "react-router";
 
@@ -15,7 +16,14 @@ function HeaderButton({ to, children }: HeaderButton) {
 
 export default function Header() {
 	return (
-		<header className="flex justify-between w-2xl items-center bg-[#0a0a0a] px-5 py-3 rounded-2xl border-[#262626] border">
+		<motion.header
+			initial={{ y: "-10vh" }}
+			animate={{
+				y: 0,
+				transition: { type: "spring", duration: 0.6 },
+			}}
+			className="flex justify-between w-2xl items-center bg-[#0a0a0a] px-5 py-3 rounded-2xl border-[#262626] border"
+		>
 			{/*Title/home page navigation*/}
 			<div className="font-black">
 				<Link
@@ -30,6 +38,6 @@ export default function Header() {
 				<HeaderButton to="/about">About</HeaderButton>
 				<HeaderButton to="/blog">Blog</HeaderButton>
 			</div>
-		</header>
+		</motion.header>
 	);
 }

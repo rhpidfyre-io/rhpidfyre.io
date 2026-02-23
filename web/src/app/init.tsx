@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { Link, type To } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Globe, MessageCircleMore, Server } from "lucide-react";
@@ -29,7 +30,12 @@ function Layout({ children }: { children: React.ReactNode }) {
 export default function Index() {
 	return (
 		<Layout>
-			<main className="flex flex-col justify-center items-center gap-3 bg-[#0a0a0a] p-5 rounded-2xl border-[#262626] border [&>svg]:text-[#666666] [&>svg]:my-1">
+			<motion.main
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 0.5 }}
+				className="flex flex-col justify-center items-center gap-3 bg-[#0a0a0a] p-5 rounded-2xl border-[#262626] border [&>svg]:text-[#666666] [&>svg]:my-1"
+			>
 				{/*Contacts and socials*/}
 				<MessageCircleMore />
 				<div className="flex gap-5">
@@ -57,7 +63,7 @@ export default function Index() {
 				<MenuButton to="https://koconutmc.com">
 					koconutmc.com
 				</MenuButton>
-			</main>
+			</motion.main>
 		</Layout>
 	);
 }

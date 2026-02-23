@@ -1,8 +1,16 @@
+import { motion } from "motion/react";
 import { Link } from "react-router";
 
 export default function Footer() {
 	return (
-		<footer className="flex flex-col justify-center items-center gap-2 text-sm text-[#4d4d4d]">
+		<motion.footer
+			initial={{ y: "10vh" }}
+			animate={{
+				y: 0,
+				transition: { type: "spring", duration: 0.6 },
+			}}
+			className="flex flex-col justify-center items-center gap-2 text-sm text-[#4d4d4d]"
+		>
 			<p>&copy; rhpidfyre 2026</p>
 			<div className="flex gap-2 [&>a]:hover:underline">
 				<Link to="/">Home</Link>
@@ -17,6 +25,6 @@ export default function Footer() {
 					Source Code
 				</Link>
 			</div>
-		</footer>
+		</motion.footer>
 	);
 }
