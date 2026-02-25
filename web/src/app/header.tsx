@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 import { Link, type To } from "react-router";
 
 interface HeaderButton {
@@ -14,10 +14,10 @@ function HeaderButton({ to, children }: HeaderButton) {
 	);
 }
 
-export default function Header() {
+export default function Header({ intro }: { intro: boolean }) {
 	return (
 		<motion.header
-			initial={{ y: "-10vh" }}
+			initial={intro ? false : { y: "-10vh" }}
 			animate={{
 				y: 0,
 				transition: { type: "spring", duration: 0.6 },

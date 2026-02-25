@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 
-export default function Footer() {
+export default function Footer({ intro }: { intro: boolean }) {
 	return (
 		<motion.footer
-			initial={{ y: "10vh" }}
+			initial={intro ? false : { y: "10vh" }}
 			animate={{
 				y: 0,
 				transition: { type: "spring", duration: 0.6 },
