@@ -12,5 +12,16 @@ const intro = createSlice({
 	},
 });
 
-export const { play_intro } = intro.actions;
-export default intro.reducer;
+const discord_intro = createSlice({
+	name: "discord_intro",
+	initialState: {
+		played: false,
+	},
+	reducers: {
+		play_intro: (state) => {
+			state.played = true;
+		},
+	},
+});
+
+export { discord_intro, intro };
