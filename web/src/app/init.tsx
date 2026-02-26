@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, type To } from "react-router";
 import Footer from "./footer";
 import Header from "./header";
-import { play_intro } from "./redux/intro";
+import { intro } from "./redux/intro";
 import type { IntroStoreState } from "./redux/stores";
 
 interface MenuButton {
@@ -26,7 +26,7 @@ function useIntro(): boolean {
 	const played = useSelector((state: IntroStoreState) => state.intro.played);
 
 	useEffect(() => {
-		if (!played) dispatch(play_intro());
+		if (!played) dispatch(intro.actions.play_intro());
 	}, [played, dispatch]);
 
 	return played;
@@ -39,7 +39,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 		<div className="flex flex-col justify-between items-center h-screen py-5">
 			<Header intro={played} />
 			{children}
-			<Footer intro={played} />
+			<Footer />
 		</div>
 	);
 }
@@ -50,8 +50,8 @@ export default function Index() {
 	return (
 		<Layout>
 			<motion.main
-				initial={played ? false : { opacity: 0 }}
-				animate={{ opacity: 1 }}
+				initial={played ? false : { y: "10%", opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
 				transition={{ duration: 0.5 }}
 				className="flex flex-col justify-center items-center gap-3 bg-[#0a0a0a] p-5 rounded-2xl border-[#262626] border [&>svg]:text-[#666666] [&>svg]:my-1"
 			>
