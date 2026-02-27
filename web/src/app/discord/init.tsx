@@ -9,8 +9,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
-import { Layout } from "../init";
-import { discord_intro } from "../redux/intro";
+import { intros } from "../redux/intro";
 import type { IntroStoreState } from "../redux/stores";
 
 const username: string = "sedenions";
@@ -85,42 +84,38 @@ function CopyUserClipboard() {
 export default function Discord() {
 	const dispatch = useDispatch();
 	const played = useSelector(
-		(state: IntroStoreState) => state.discord_intro.played,
+		(state: IntroStoreState) => state.intros.discord_played,
 	);
 
 	useEffect(() => {
-		if (!played) dispatch(discord_intro.actions.play_intro());
+		if (!played) dispatch(intros.actions.play_discord());
 	}, [played, dispatch]);
 
 	return (
-		<Layout>
-			<motion.main
-				initial={played ? false : { y: "10%", opacity: 0 }}
-				animate={{ y: 0, opacity: 1 }}
-				transition={{ duration: 0.5 }}
-				className="flex flex-col justify-center items-center w-80 gap-5 bg-[#0a0a0a] px-5 pt-6 pb-5 rounded-2xl border-[#262626] border [&>svg]:text-[#666666] [&>svg]:my-1"
-			>
-				<Link to="https://discord.com/">
-					<DiscordSvg />
+		<motion.main
+			initial={played ? false : { y: "10%", opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.5 }}
+			className="flex flex-col justify-center items-center w-80 gap-5 bg-[#0a0a0a] px-5 pt-6 pb-5 rounded-2xl border-[#262626] border [&>svg]:text-[#666666] [&>svg]:my-1"
+		>
+			<Link to="https://discord.com/">
+				<DiscordSvg />
+			</Link>
+			<ProfilePicture />
+			<div className="flex flex-col gap-2">
+				<h1 className="text-2xl text-center font-bold">
+					{display_name}
+				</h1>
+				<h2 className="text-center text-[#808080]">{"@" + username}</h2>
+			</div>
+			<div className="flex flex-col gap-3 w-full">
+				<CopyUserClipboard />
+				<Link to="/">
+					<Button className="w-full">
+						<ArrowLeftFromLine /> Back
+					</Button>
 				</Link>
-				<ProfilePicture />
-				<div className="flex flex-col gap-2">
-					<h1 className="text-2xl text-center font-bold">
-						{display_name}
-					</h1>
-					<h2 className="text-center text-[#808080]">
-						{"@" + username}
-					</h2>
-				</div>
-				<div className="flex flex-col gap-3 w-full">
-					<CopyUserClipboard />
-					<Link to="/">
-						<Button className="w-full">
-							<ArrowLeftFromLine /> Back
-						</Button>
-					</Link>
-				</div>
-			</motion.main>
-		</Layout>
+			</div>
+		</motion.main>
 	);
 }

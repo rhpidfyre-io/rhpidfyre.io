@@ -14,10 +14,10 @@ function HeaderButton({ to, children }: HeaderButton) {
 	);
 }
 
-export default function Header({ intro }: { intro: boolean }) {
+export default function Header() {
 	return (
 		<motion.header
-			initial={intro ? false : { y: "-10vh" }}
+			initial={{ y: "-10vh" }}
 			animate={{
 				y: 0,
 				transition: { type: "spring", duration: 0.6 },

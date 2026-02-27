@@ -1,27 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const intro = createSlice({
-	name: "intro",
+const intros = createSlice({
+	name: "intros",
 	initialState: {
-		played: false,
+		discord_played: false,
+		home_played: false,
 	},
 	reducers: {
-		play_intro: (state) => {
-			state.played = true;
+		play_discord: (state) => {
+			state.discord_played = true;
+		},
+		play_home: (state) => {
+			state.home_played = true;
 		},
 	},
 });
 
-const discord_intro = createSlice({
-	name: "discord_intro",
-	initialState: {
-		played: false,
-	},
-	reducers: {
-		play_intro: (state) => {
-			state.played = true;
-		},
-	},
-});
-
-export { discord_intro, intro };
+export { intros };

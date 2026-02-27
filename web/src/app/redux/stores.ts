@@ -1,10 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { discord_intro, intro } from "./intro";
+import { intros } from "./intro";
 
 const intro_store = configureStore({
 	reducer: {
-		intro: intro.reducer,
-		discord_intro: discord_intro.reducer,
+		intros: intros.reducer,
 	},
 });
 
