@@ -11,11 +11,6 @@ button:not(:disabled),
 	cursor: pointer;
 }
 
-::selection {
-	background-color: white;
-	color: black;
-}
-
 :root {
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	font-synthesis: none;
@@ -139,15 +134,4 @@ button:not(:disabled),
 	body {
 		@apply bg-background text-foreground;
 	}
-}
-
-body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0;
-	height: 100%;
-	overflow-x: hidden;
-	background-color: black;
-	color: #e6e6e6;
 }
