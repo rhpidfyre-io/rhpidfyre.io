@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, type To } from "react-router";
-import { intros } from "./redux/intro";
+import { useTitle } from "./hooks/useTitle";
 import type { IntroStoreState } from "./redux/stores";
 
 interface MenuButton {
@@ -20,6 +20,8 @@ function MenuButton({ to, children }: MenuButton) {
 }
 
 export default function Index() {
+	useTitle();
+
 	const dispatch = useDispatch();
 	const played = useSelector(
 		(state: IntroStoreState) => state.intros.home_played,

@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
-import { intros } from "../redux/intro";
+import { useTitle } from "../hooks/useTitle";
 import type { IntroStoreState } from "../redux/stores";
 
 const username: string = "sedenions";
@@ -82,6 +82,8 @@ function CopyUserClipboard() {
 }
 
 export default function Discord() {
+	useTitle("Discord");
+
 	const dispatch = useDispatch();
 	const played = useSelector(
 		(state: IntroStoreState) => state.intros.discord_played,
