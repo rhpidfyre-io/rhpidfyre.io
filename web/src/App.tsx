@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router";
+import NotFound from "./app/404/init";
 import About from "./app/about/init";
 import Blog from "./app/blog/init";
 import Discord from "./app/discord/init";
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/discord" element={<Discord />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/blog" element={<Blog />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
 		</>
