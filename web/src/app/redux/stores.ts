@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { intros } from "./intro";
+import intros from "./intro";
 
 const intro_store = configureStore({
 	reducer: {

@@ -4,6 +4,7 @@ const intros = createSlice({
 	name: "intros",
 	initialState: {
 		discord_played: false,
+		about_played: false,
 		home_played: false,
 	},
 	reducers: {
@@ -13,7 +14,10 @@ const intros = createSlice({
 		play_home: (state) => {
 			state.home_played = true;
 		},
+		play_about: (state) => {
+			state.about_played = true;
+		},
 	},
 });
 
-export { intros };
+export default intros;

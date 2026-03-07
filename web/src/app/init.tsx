@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, type To } from "react-router";
 import { useTitle } from "./hooks/useTitle";
+import intros from "./redux/intro";
 import type { IntroStoreState } from "./redux/stores";
 
 interface MenuButton {

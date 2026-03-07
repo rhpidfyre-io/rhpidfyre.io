@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
 import { useTitle } from "../hooks/useTitle";
+import intros from "../redux/intro";
 import type { IntroStoreState } from "../redux/stores";
 
 const username: string = "sedenions";
