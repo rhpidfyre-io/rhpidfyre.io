@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Globe, MessageCircleMore, Server } from "lucide-react";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Globe, Mail, MessageCircleMore, Server } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +22,20 @@ function MenuButton({ to, children }: MenuButton) {
 		<Link to={to} className="w-full [&>button]:w-full">
 			<Button className="px-13">{children}</Button>
 		</Link>
+	);
+}
+
+function EmailButton() {
+	return (
+		<Tooltip>
+			<TooltipTrigger className="w-full">
+				<MenuButton to="mailto:brandon@rhpidfyre.io">Email</MenuButton>
+			</TooltipTrigger>
+			<TooltipContent className="flex justify-center items-center gap-2">
+				<Mail />
+				<p className="text-sm">brandon@rhpidfyre.io</p>
+			</TooltipContent>
+		</Tooltip>
 	);
 }
 
@@ -45,7 +64,7 @@ export default function Index() {
 				<MenuButton to="/discord">Discord</MenuButton>
 				<MenuButton to="https://t.me/kocobutter">Telegram</MenuButton>
 			</div>
-			<MenuButton to="mailto:brandon@rhpidfyre.io">Email</MenuButton>
+			<EmailButton />
 			<MenuButton to="https://matrix.to/#/@me:matrix.rhpidfyre.io">
 				Matrix
 			</MenuButton>
