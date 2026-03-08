@@ -109,7 +109,7 @@ export default function Discord() {
 				<h1 className="text-2xl text-center font-bold">
 					{display_name}
 				</h1>
-				<h2 className="text-center text-[#808080]">{"@" + username}</h2>
+				<h2 className="text-center text-[#808080]">@{username}</h2>
 			</div>
 			<div className="flex flex-col gap-3 w-full">
 				<CopyUserClipboard />
