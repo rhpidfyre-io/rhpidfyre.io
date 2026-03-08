@@ -76,7 +76,7 @@ function CopyUserClipboard() {
 				</Button>
 			</TooltipTrigger>
 			<TooltipContent>
-				<p className="text-sm">{username}</p>
+				<p className="text-sm">@{username}</p>
 			</TooltipContent>
 		</Tooltip>
 	);
