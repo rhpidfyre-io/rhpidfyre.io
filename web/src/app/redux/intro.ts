@@ -6,6 +6,7 @@ const intros = createSlice({
 		discord_played: false,
 		about_played: false,
 		home_played: false,
+		login_played: false,
 	},
 	reducers: {
 		play_discord: (state) => {
@@ -16,6 +17,9 @@ const intros = createSlice({
 		},
 		play_about: (state) => {
 			state.about_played = true;
+		},
+		play_login: (state) => {
+			state.login_played = true;
 		},
 	},
 });

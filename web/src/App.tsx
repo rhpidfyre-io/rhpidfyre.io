@@ -6,6 +6,7 @@ import Discord from "./app/discord/init";
 import Footer from "./app/footer";
 import Header from "./app/header";
 import Index from "./app/init";
+import Login from "./app/login/init";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<Route path="/discord" element={<Discord />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/blog" element={<Blog />} />
+				<Route path="/login" element={<Login />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
