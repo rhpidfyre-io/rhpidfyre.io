@@ -28,8 +28,13 @@ function MenuButton({ to, children }: MenuButton) {
 function EmailButton() {
 	return (
 		<Tooltip>
-			<TooltipTrigger className="w-full">
-				<MenuButton to="mailto:brandon@rhpidfyre.io">Email</MenuButton>
+			<TooltipTrigger className="w-full" asChild>
+				<Link
+					to="mailto:brandon@rhpidfyre.io"
+					className="w-full [&>button]:w-full"
+				>
+					<Button className="px-13">Email</Button>
+				</Link>
 			</TooltipTrigger>
 			<TooltipContent className="flex justify-center items-center gap-2">
 				<Mail />
