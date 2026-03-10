@@ -47,6 +47,7 @@ export default function Login() {
 							<Field>
 								<FieldLabel htmlFor="email">Email</FieldLabel>
 								<Input
+									className="border-[#262626]"
 									id="email"
 									type="email"
 									placeholder="m@example.com"
@@ -57,7 +58,12 @@ export default function Login() {
 								<FieldLabel htmlFor="password">
 									Password
 								</FieldLabel>
-								<Input id="password" type="password" required />
+								<Input
+									className="border-[#262626]"
+									id="password"
+									type="password"
+									required
+								/>
 							</Field>
 							<Field>
 								<Button type="submit">Login</Button>
