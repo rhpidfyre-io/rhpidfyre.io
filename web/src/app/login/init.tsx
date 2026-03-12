@@ -9,11 +9,52 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { motion } from "motion/react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTitle } from "../hooks/useTitle";
 import intros from "../redux/intro";
 import type { IntroStoreState } from "../redux/stores";
+
+function LoginLogic() {
+	const email_input = useRef<HTMLInputElement>(null);
+	const pass_input = useRef<HTMLInputElement>(null);
+
+	const login_activated = () => {
+		console.log(email_input.current?.value);
+		console.log(pass_input.current?.value);
+	};
+
+	return (
+		<FieldGroup>
+			<Field>
+				<FieldLabel htmlFor="email">Email</FieldLabel>
+				<Input
+					ref={email_input}
+					className="border-[#262626]"
+					id="email"
+					type="email"
+					placeholder="m@example.com"
+					required
+				/>
+			</Field>
+			<Field>
+				<FieldLabel htmlFor="password">Password</FieldLabel>
+				<Input
+					ref={pass_input}
+					className="border-[#262626]"
+					id="password"
+					type="password"
+					required
+				/>
+			</Field>
+			<Field>
+				<Button onClick={login_activated} type="submit">
+					Login
+				</Button>
+			</Field>
+		</FieldGroup>
+	);
+}
 
 export default function Login() {
 	useTitle("Login");
@@ -43,32 +84,7 @@ export default function Login() {
 				</CardHeader>
 				<CardContent>
 					<form>
-						<FieldGroup>
-							<Field>
-								<FieldLabel htmlFor="email">Email</FieldLabel>
-								<Input
-									className="border-[#262626]"
-									id="email"
-									type="email"
-									placeholder="m@example.com"
-									required
-								/>
-							</Field>
-							<Field>
-								<FieldLabel htmlFor="password">
-									Password
-								</FieldLabel>
-								<Input
-									className="border-[#262626]"
-									id="password"
-									type="password"
-									required
-								/>
-							</Field>
-							<Field>
-								<Button type="submit">Login</Button>
-							</Field>
-						</FieldGroup>
+						<LoginLogic />
 					</form>
 				</CardContent>
 			</Card>
