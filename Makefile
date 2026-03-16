@@ -1,3 +1,7 @@
+setup:
+	cd web && pnpm install
+	cd express && pnpm install
+
 clean:
 	rm -rf ./web/dist
 
@@ -10,3 +14,6 @@ build-web:
 # image
 docker-web:
 	docker build ./web -t rhpidfyre_io
+
+docker-express:
+	docker build ./express -t rhpidfyre_io_server
