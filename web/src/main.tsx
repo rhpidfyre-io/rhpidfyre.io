@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import App from "./App.tsx";
 import { intro_store } from "./app/redux/stores.ts";
+import { Toaster } from "./components/ui/sonner.tsx";
 import { TooltipProvider } from "./components/ui/tooltip.tsx";
 import "./index.css";
 
@@ -13,6 +14,7 @@ createRoot(document.getElementById("root")!).render(
 			<TooltipProvider>
 				<BrowserRouter>
 					<App />
+					<Toaster />
 				</BrowserRouter>
 			</TooltipProvider>
 		</Provider>
