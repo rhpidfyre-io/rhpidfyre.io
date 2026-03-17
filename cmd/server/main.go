@@ -3,19 +3,19 @@ package main
 import (
 	"log"
 	"os"
+
+	"github.com/rhpidfyre-io/rhpidfyre.io/pkg/api"
 )
 
+const PROMPT_PADDING = "\n-*-*-*-*-*-*-*-*-*-*-"
 const REQUIRED_ENVS_PROMPT = `
 Environment variables required:
 CLIENT_ID=
 AUTH_URL=
-ISSUER=
--*-*-*-*-*-*-*-*-*-*-`
+ISSUER=` + PROMPT_PADDING
 
-type ApiConfig struct {
-	authUrl  *string
-	port     *string
-	clientId *string
+func missing_env_var(env_name string) {
+	log.Fatal("Environment variable: " + env_name + " is not set, STOPPING." + REQUIRED_ENVS_PROMPT)
 }
 
 func main() {
@@ -23,21 +23,24 @@ func main() {
 	issuer, issuer_set := os.LookupEnv("ISSUER")
 	auth_url, auth_url_set := os.LookupEnv("AUTH_URL")
 	clientid, clientid_set := os.LookupEnv("CLIENT_ID")
-
 	if !port_set {
 		port = "3000"
-		log.Println("Environment variable PORT is not set, DEFAULTING to 3000.")
+		log.Println("Environment variable PORT is not set, DEFAULTING to 3000." + PROMPT_PADDING)
 	}
 	if !clientid_set {
-		log.Fatal("Environment variable CLIENT_ID is not set, STOPPING." + REQUIRED_ENVS_PROMPT)
+		missing_env_var("CLIENT_ID")
 	}
 	if !auth_url_set {
-		log.Fatal("Environment variable AUTH_URL is not set, STOPPING." + REQUIRED_ENVS_PROMPT)
+		missing_env_var("AUTH_URL")
+	}
+	if !issuer_set {
+		missing_env_var("ISSUER")
 	}
 
-	api(ApiConfig{
-		&auth_url,
-		&port,
-		&clientid,
+	api.Start(&api.Config{
+		AuthUrl:  auth_url,
+		Port:     port,
+		ClientId: clientid,
+		Issuer:   issuer,
 	})
 }
