@@ -8,10 +8,11 @@ import (
 )
 
 type Config struct {
-	AuthUrl  string
-	Port     string
-	ClientId string
-	Issuer   string
+	AuthUrl   string
+	Port      string
+	ClientId  string
+	Issuer    string
+	Debugging bool
 }
 
 func v1(api_root *gin.Engine, cfg *Config) {
@@ -25,7 +26,11 @@ func v1(api_root *gin.Engine, cfg *Config) {
 }
 
 func Start(cfg *Config) {
+	if !cfg.Debugging {
+		gin.SetMode(gin.ReleaseMode)
+	}
 	api_root := gin.Default()
+
 	// Redirect /auth
 	api_root.GET("/auth", func(ctx *gin.Context) {
 		ctx.Redirect(http.StatusMovedPermanently, cfg.AuthUrl)

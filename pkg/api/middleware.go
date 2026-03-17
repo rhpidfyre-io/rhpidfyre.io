@@ -28,7 +28,7 @@ func RequireAuth(ctx *gin.Context, cfg *Config) {
 	}
 
 	var claims map[string]any
-	_ = token.Claims(&claims)
+	token.Claims(&claims)
 	ctx.Set("claims", claims)
 	ctx.Next()
 }

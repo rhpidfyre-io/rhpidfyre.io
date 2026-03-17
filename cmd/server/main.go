@@ -20,6 +20,7 @@ func missing_env_var(env_name string) {
 
 func main() {
 	port, port_set := os.LookupEnv("PORT")
+	_, debugging_set := os.LookupEnv("DEBUG")
 	issuer, issuer_set := os.LookupEnv("ISSUER")
 	auth_url, auth_url_set := os.LookupEnv("AUTH_URL")
 	clientid, clientid_set := os.LookupEnv("CLIENT_ID")
@@ -37,10 +38,12 @@ func main() {
 		port = "3000"
 		log.Println("Environment variable PORT is not set, DEFAULTING to 3000." + PROMPT_PADDING)
 	}
+
 	api.Start(&api.Config{
-		AuthUrl:  auth_url,
-		Port:     port,
-		ClientId: clientid,
-		Issuer:   issuer,
+		AuthUrl:   auth_url,
+		Port:      port,
+		ClientId:  clientid,
+		Issuer:    issuer,
+		Debugging: debugging_set,
 	})
 }
