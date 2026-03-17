@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 *.lock
+
+cmd/server/server
