@@ -1,11 +1,19 @@
-FROM golang:alpine
+# Build stage
+FROM golang:alpine AS builder
 
 WORKDIR /build
 
 COPY go.mod go.sum ./
+RUN go mod download
 
-RUN go mod tidy && go build -o server
+COPY cmd/ ./cmd/
+COPY pkg/ ./pkg/
+RUN CGO_ENABLED=0 GOOS=linux go build -o server ./cmd/server
+
+FROM alpine:latest
+
+COPY --from=builder /build/server /root
 
 EXPOSE 3000
 
-CMD ["/build/server"]
+CMD ["/root/server"]
