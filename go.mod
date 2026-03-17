@@ -3,14 +3,8 @@ module github.com/rhpidfyre-io/rhpidfyre.io
 go 1.26.1
 
 require (
-	github.com/MicahParks/keyfunc/v3 v3.8.0
 	github.com/coreos/go-oidc/v3 v3.17.0
 	github.com/gin-gonic/gin v1.12.0
-	github.com/golang-jwt/jwt/v5 v5.3.1
-)
-
-require (
-	github.com/MicahParks/jwkset v0.11.0 // indirect
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.15.0 // indirect
 	github.com/bytedance/sonic/loader v0.5.0 // indirect
@@ -41,6 +35,5 @@ require (
 	golang.org/x/oauth2 v0.28.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
 	golang.org/x/text v0.34.0 // indirect
-	golang.org/x/time v0.9.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 )
