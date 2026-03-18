@@ -1,9 +1,10 @@
 setup:
 	cd web && pnpm install
-	cd express && pnpm install
+	go mod download
 
 clean:
 	rm -rf ./web/dist
+	rm ./rhpidfyreio_server
 
 web:
 	rm -rf ./web/dist
@@ -17,5 +18,5 @@ server:
 docker-web:
 	docker build ./web -t rhpidfyre_io
 
-docker-express:
-	docker build ./express -t rhpidfyre_io_server
+docker-server:
+	docker build . -t rhpidfyre_io_server
