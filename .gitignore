@@ -25,4 +25,4 @@ dist-ssr
 
 *.lock
 
-cmd/server/server
+rhpidfyreio_server
