@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Links from "../layouts/Links.astro";
+import Link from "../components/button/Link.astro";
+import { ArrowLeft } from "@lucide/astro";
+---
+
+<Layout title="services">
+	<Links>
+		<Link external to="https://git.rhpidfyre.io">Gitea</Link>
+		<Link external to="https://immich.rhpidfyre.io">Immich</Link>
+		<Link external to="https://gsm.rhpidfyre.io">Pterodactyl</Link>
+		<span
+			class="h-px w-[120%] dark:bg-[#333333] bg-[#808080] opacity-50 block mt-3"
+		></span>
+		<div
+			class="[&>a]:opacity-50 [&>a]:hover:opacity-100 [&>a]:transition-opacity flex justify-evenly items-center w-full"
+		>
+			<a href="/">
+				<ArrowLeft />
+			</a>
+		</div>
+	</Links>
+</Layout>

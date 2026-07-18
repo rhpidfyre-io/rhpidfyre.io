@@ -2,17 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Links from "../layouts/Links.astro";
 import Link from "../components/button/Link.astro";
+import Block from "../components/block.astro";
 import GitHub from "../assets/github.svg";
 import { Mail } from "@lucide/astro";
 ---
 
 <Layout>
 	<Links>
-		<Link to="/projects">Projects</Link>
-		<Link to="/services">Services</Link>
-		<span
-			class="h-px w-[120%] dark:bg-[#333333] bg-[#808080] opacity-50 block mt-3"
-		></span>
+		<h1>rhpidfyre</h1>
+		<Block />
+		<div class="flex flex-col gap-3 mt-5 mb-5">
+			<Link to="/projects">Projects</Link>
+			<Link to="/services">Services</Link>
+		</div>
+		<Block />
 		<div
 			class="[&>a]:opacity-50 [&>a]:hover:opacity-100 [&>a]:transition-opacity flex justify-evenly items-center w-full"
 		>
