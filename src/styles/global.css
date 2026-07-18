@@ -6,6 +6,7 @@ button:not(:disabled),
 }
 
 :root {
+	font-family: "Geist Mono", ui-monospace, monospace;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
