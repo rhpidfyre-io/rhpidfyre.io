@@ -1,9 +1,9 @@
-FROM guergeiro/pnpm AS builder
+FROM node AS builder
 
 WORKDIR /app
 
 COPY . .
-RUN pnpm install && pnpm run build
+RUN npm install && npm run build
 
 FROM nginx:stable-alpine
 
